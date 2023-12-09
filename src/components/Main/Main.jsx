@@ -1,34 +1,11 @@
-import Card from "../Card/Card"
+// import Card from "../Card/Card"
+import Container from "../Container"
 
-const tasks = [
-    {
-        id: 0,
-        title: "Название задачи",
-        date: "30.10.2023",
-        theme: "orange",
-        description: "Web Design",
-    },
-    {
-        id: 1,
-        title: "Название задачи",
-        date: "30.10.2023",
-        theme: "green",
-        description: "Research",
-    },
-    {
-        id: 2,
-        title: "Название задачи",
-        date: "30.10.2023",
-        theme: "purple",
-        description: "Copywriting",
-    },
-]
-
-export default function Main() {
+export default function Main({children}) {
     return (
 <main className="main">
-    {/* {children} */}
-  <div className="container">
+    {children}
+  {/* <div className="container">
     
     <div className="main__block">
       <div className="main__content">
@@ -474,7 +451,8 @@ export default function Main() {
       </div>
     
     </div>
-  </div>
+  </div> */}
+  <Container />
 </main>
     )
 }

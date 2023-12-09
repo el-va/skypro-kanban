@@ -2,6 +2,7 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from './vite.svg'
 import './App.css'
+import Container from './components/Container'
 import Header from './components/Header/Header'
 import Main from './components/Main/Main'
 import PopBrowse from './components/PopBrowse/PopBrowse'
@@ -29,9 +30,9 @@ function App() {
 
 <Header />
 
-<Main />
-  {/* <Card /> */}
-{/* </Main> */}
+<Main>
+  <Container />
+</Main>
 </div>
 
 <script src="js/script.js"></script>
