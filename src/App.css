@@ -109,6 +109,11 @@ body {
   color: #FFFFFF;
 }
 
+._yellow {
+  background: rgb(255, 255, 94);
+  color: darkorange;
+}
+
 ._active-category {
   opacity: 1 !important;
 }
