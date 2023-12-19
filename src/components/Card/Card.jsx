@@ -3,7 +3,7 @@ export default function Card({ color, theme, title, date }) {
     <div className="cards__item">
       <div className="cards__card card">
         <div className="card__group">
-          <div className={"card__theme" + color}>
+          <div className={`card__theme ${color}`}>
             <p className={color}>{theme}</p>
           </div>
           <a href="#popBrowse" target="_self">
