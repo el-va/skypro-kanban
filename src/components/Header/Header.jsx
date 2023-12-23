@@ -1,4 +1,7 @@
 import { useState } from "react";
+import Button from "../Button/Button.styled";
+import { HeaderBlock, HeaderNav, StyledHeader } from "./Header.styled";
+import { StyledContainer } from "../Common/Common.styled";
 
 export default function Header({ addCards }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,9 +10,9 @@ export default function Header({ addCards }) {
   };
 
   return (
-    <header className="header">
-      <div className="container">
-        <div className="header__block">
+    <StyledHeader>
+      <StyledContainer>
+        <HeaderBlock>
           <div className="header__logo _show _light">
             <a href="" target="_self">
               <img src="images/logo.png" alt="logo" />
@@ -20,10 +23,13 @@ export default function Header({ addCards }) {
               <img src="images/logo_dark.png" alt="logo" />
             </a>
           </div>
-          <nav className="header__nav">
-            <button className="header__btn-main-new _hover01" id="btnMainNew">
+          <HeaderNav>
+            <Button>
               <a onClick={addCards}>Создать новую задачу</a>
-            </button>
+            </Button>
+            {/* <button className="header__btn-main-new _hover01" id="btnMainNew">
+              <a onClick={addCards}>Создать новую задачу</a>
+            </button> */}
             <a
               onClick={toggleDropdown}
               href="#user-set-target"
@@ -48,9 +54,9 @@ export default function Header({ addCards }) {
                 </button>
               </div>
             )}
-          </nav>
-        </div>
-      </div>
-    </header>
+          </HeaderNav>
+        </HeaderBlock>
+      </StyledContainer>
+    </StyledHeader>
   );
 }
