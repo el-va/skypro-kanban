@@ -1,11 +1,11 @@
 import { statusList } from "../../data";
 import Column from "../Column/Column";
-import { StyledContainer } from "../Common/Common.styled";
+import { ContainerContainer } from "../Common/Common.styled";
 import { MainBlock, MainContent } from "./Container.styled";
 
 export default function Container({ cards }) {
   return (
-    <StyledContainer>
+    <ContainerContainer>
       <MainBlock>
         <MainContent>
           {statusList.map((status) => (
@@ -17,6 +17,6 @@ export default function Container({ cards }) {
           ))}
         </MainContent>
       </MainBlock>
-      </StyledContainer>
+    </ContainerContainer>
   );
 }

@@ -60,9 +60,9 @@ body {
   padding: 0 30px;
 } */
 
-/* ._hover01:hover {
+._hover01:hover {
   background-color: #33399b;
-} */
+}
 
 ._hover02:hover, .header__user:hover {
   color: #33399b;
@@ -89,7 +89,7 @@ body {
   display: block;
 }
 
-/* ._orange {
+._orange {
   background-color: #FFE4C2;
   color: #FF6D00;
 }
@@ -112,7 +112,7 @@ body {
 ._yellow {
   background: rgb(255, 255, 94);
   color: darkorange;
-} */
+}
 
 ._active-category {
   opacity: 1 !important;
@@ -222,12 +222,12 @@ body {
   justify-content: center;
 }
 
-/* .pop-exit__form-group {
+.pop-exit__form-group {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-} */
+}
 
 .pop-user-set__name {
   color: #000;
@@ -888,20 +888,20 @@ body {
   width: 100%;
   margin: 0 auto;
   padding: 25px 0 49px;
-}
+} */
 
-.main__content {
+/* .main__content {
   width: 100%;
   display: flex;
 } */
 
-/* .main__column {
+.main__column {
   width: 20%;
   margin: 0 auto;
   display: block;
-} */
+}
 
-/* .column__title {
+.column__title {
   padding: 0 10px;
   margin: 15px 0;
 }
@@ -912,13 +912,13 @@ body {
   font-weight: 600;
   line-height: 1;
   text-transform: uppercase;
-} */
+}
 
-/* .cards {
+.cards {
   width: 100%;
   display: block;
   position: relative;
-} */
+}
 
 /* .cards__item {
   padding: 5px;
@@ -1001,9 +1001,9 @@ body {
 
 /* .card__date svg {
   width: 13px;
-}
+} */
 
-.card__date p {
+/* .card__date p {
   margin-left: 6px;
   font-size: 10px;
   line-height: 13px;
@@ -1022,17 +1022,17 @@ body {
     display: block;
   } */
 
-  /* .main__column {
+  .main__column {
     width: 100%;
     margin: 0 auto;
     display: block;
-  } */
+  }
 
-  /* .cards {
+  .cards {
     width: 100%;
     display: flex;
     overflow-y: auto;
-  } */
+  }
 
   /* .cards__card {
     width: 220px;
@@ -1120,10 +1120,10 @@ body {
 }
 
  @media screen and (max-width: 495px) {
-  .container {
+  /* .container {
     width: 100%;
     padding: 0 16px;
-  }
+  } */
 
   .header__btn-main-new {
     z-index: 3;
@@ -1226,9 +1226,9 @@ body {
     height: 40px;
   }
 
-  /* .pop-exit__form-group {
+  .pop-exit__form-group {
     display: block;
-  } */
+  }
 }
 
 

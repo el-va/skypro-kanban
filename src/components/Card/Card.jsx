@@ -1,16 +1,23 @@
-import { CardTheme, CardItem, ThemeP, CardsCard, CardGroup, CardBtn, CardContent, CardTitle, CardDate, CardDateSvg, CardDateP } from "./Card.styled";
+import {
+  CardBtn,
+  CardContent,
+  CardDate,
+  CardDateP,
+  CardDateSvg,
+  CardGroup,
+  CardItem,
+  CardTitle,
+  CardsCard,
+} from "./Card.styled";
 
 export default function Card({ color, theme, title, date }) {
   return (
     <CardItem>
       <CardsCard>
         <CardGroup>
-          <CardTheme $themeColor={color}>
-            <ThemeP>{theme}</ThemeP>
-          </CardTheme>
-          {/* <div className={`card__theme ${color}`}>
+          <div className={`card__theme ${color}`}>
             <p className={color}>{theme}</p>
-          </div> */}
+          </div>
           <a href="#popBrowse" target="_self">
             <CardBtn>
               <div></div>

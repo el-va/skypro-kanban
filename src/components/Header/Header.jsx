@@ -1,7 +1,6 @@
 import { useState } from "react";
-import Button from "../Button/Button.styled";
 import { HeaderBlock, HeaderNav, StyledHeader } from "./Header.styled";
-import { StyledContainer } from "../Common/Common.styled";
+import { ContainerContainer } from "../Common/Common.styled";
 
 export default function Header({ addCards }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +10,7 @@ export default function Header({ addCards }) {
 
   return (
     <StyledHeader>
-      <StyledContainer>
+      <ContainerContainer>
         <HeaderBlock>
           <div className="header__logo _show _light">
             <a href="" target="_self">
@@ -24,12 +23,9 @@ export default function Header({ addCards }) {
             </a>
           </div>
           <HeaderNav>
-            <Button>
+            <button className="header__btn-main-new _hover01" id="btnMainNew">
               <a onClick={addCards}>Создать новую задачу</a>
-            </Button>
-            {/* <button className="header__btn-main-new _hover01" id="btnMainNew">
-              <a onClick={addCards}>Создать новую задачу</a>
-            </button> */}
+            </button>
             <a
               onClick={toggleDropdown}
               href="#user-set-target"
@@ -56,7 +52,7 @@ export default function Header({ addCards }) {
             )}
           </HeaderNav>
         </HeaderBlock>
-      </StyledContainer>
+      </ContainerContainer>
     </StyledHeader>
   );
 }

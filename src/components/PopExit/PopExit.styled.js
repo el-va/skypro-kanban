@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { breakpoints } from "../../lib/breakpoints";
 
-export const PopExit = styled.div`
+export const PopExitPop = styled.div`
   display: none;
   width: 100%;
   height: 100%;
@@ -42,13 +42,13 @@ export const PopExitTtl = styled.div`
   letter-spacing: -0.4px;
   margin-bottom: 20px;
 `
-export const PopExitFormGroup = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+// export const PopExitFormGroup = styled.div`
+//   width: 100%;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
 
-  @media screen and (max-width: ${breakpoints.sm}px) {
-    display: block;
-  }
-`
+//   @media screen and (max-width: ${breakpoints.sm}px) {
+//     display: block;
+//   }
+// `
