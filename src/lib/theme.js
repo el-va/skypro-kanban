@@ -19,4 +19,7 @@ export const themeStyles = {
     background: "rgb(255, 255, 94)",
     color: "darkorange",
   },
+  _hide: {
+    display: "none",
+  }
 };
