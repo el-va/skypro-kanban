@@ -1,5 +1,4 @@
-// import styled, { css } from "styled-components";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { breakpoints } from "../../lib/breakpoints";
 
 export const ContainerContainer = styled.div`
@@ -14,13 +13,33 @@ export const ContainerContainer = styled.div`
   }
 `
 
-// export const hover01 = css`
-//   background-color: #33399b;
-// `
-// export const hover02 = css`
-//   color: #33399b;
-// `
-// export const hover03 = css`
-//   background-color: #33399b;
-//   color: #FFFFFF;
-// `
+export const hover01 = css`
+&:hover {
+  background-color: #33399b;
+}
+`
+export const hover02 = css`
+&:hover {
+  color: #33399b;
+}
+`
+export const hover03 = css`
+&:hover {
+  background-color: #33399b;
+  color: #FFFFFF;
+}
+`
+export const hover03A = css`
+&:hover {
+  color: #FFFFFF;
+}
+`
+export const CategoriesTheme = styled.div`
+  display: inline-block;
+  width: auto;
+  height: 30px;
+  padding: 8px 20px;
+  border-radius: 24px;
+  margin-right: 7px;
+  opacity: 0.4;
+`

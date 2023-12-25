@@ -6,8 +6,10 @@ import {
   CardDateSvg,
   CardGroup,
   CardItem,
+  CardTheme,
   CardTitle,
   CardsCard,
+  ThemeP,
 } from "./Card.styled";
 
 export default function Card({ color, theme, title, date }) {
@@ -15,9 +17,12 @@ export default function Card({ color, theme, title, date }) {
     <CardItem>
       <CardsCard>
         <CardGroup>
-          <div className={`card__theme ${color}`}>
+          <CardTheme $themeColor={color}>
+            <ThemeP>{theme}</ThemeP>
+          </CardTheme>
+          {/* <div className={`card__theme ${color}`}>
             <p className={color}>{theme}</p>
-          </div>
+          </div> */}
           <a href="#popBrowse" target="_self">
             <CardBtn>
               <div></div>
