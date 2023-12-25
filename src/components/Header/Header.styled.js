@@ -127,6 +127,7 @@ export const HeaderPopUserSetThemeInput = styled.input`
   -moz-appearance: none;
   appearance: none;
 }
+
 &::before {
   content: "";
   position: absolute;

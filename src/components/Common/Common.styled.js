@@ -43,12 +43,13 @@ export const CategoriesTheme = styled.div`
   margin-right: 7px;
   opacity: 0.4;
 `
-export const PopNewCardCalendar = styled.div`
-    width: 100%;
-`
-export const Calendar = styled(PopNewCardCalendar)`
+
+export const Calendar = styled.div`
   width: 182px;
   margin-bottom: 20px;
+`
+export const PopNewCardCalendar = styled(Calendar)`
+    width: 100%;
 `
 
 export const CalendarTtl = styled.p`

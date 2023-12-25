@@ -1,44 +1,44 @@
+
+import { CategoriesP } from "../Common/Common.styled";
+import { CategoriesThemes, FormNewArea, FormNewBlock, FormNewCreate, FormNewInput, PopNewCardBlock, PopNewCardCategories, PopNewCardClose, PopNewCardContainer, PopNewCardContent, PopNewCardForm, PopNewCardTtl, PopNewCardWrap, PopPopNewCard } from "./PopNewCard.styled";
+
 export default function PopNewcard() {
   return (
-    <div className="pop-new-card" id="popNewCard">
-      <div className="pop-new-card__container">
-        <div className="pop-new-card__block">
-          <div className="pop-new-card__content">
-            <h3 className="pop-new-card__ttl">Создание задачи</h3>
-            <a href="#" className="pop-new-card__close">
+    <PopPopNewCard>
+      <PopNewCardContainer>
+        <PopNewCardBlock>
+          <PopNewCardContent>
+            <PopNewCardTtl>Создание задачи</PopNewCardTtl>
+            <PopNewCardClose href="#">
               &#10006;
-            </a>
-            <div className="pop-new-card__wrap">
-              <form
-                className="pop-new-card__form form-new"
-                id="formNewCard"
+            </PopNewCardClose>
+            <PopNewCardWrap>
+              <PopNewCardForm
                 action="#"
               >
-                <div className="form-new__block">
+                <FormNewBlock>
                   <label htmlFor="formTitle" className="subttl">
                     Название задачи
                   </label>
-                  <input
-                    className="form-new__input"
+                  <FormNewInput
                     type="text"
                     name="name"
                     id="formTitle"
                     placeholder="Введите название задачи..."
                     autoFocus
                   />
-                </div>
-                <div className="form-new__block">
+                </FormNewBlock>
+                <FormNewBlock>
                   <label htmlFor="textArea" className="subttl">
                     Описание задачи
                   </label>
-                  <textarea
-                    className="form-new__area"
+                  <FormNewArea
                     name="text"
                     id="textArea"
                     placeholder="Введите описание задачи..."
-                  ></textarea>
-                </div>
-              </form>
+                  ></FormNewArea>
+                </FormNewBlock>
+              </PopNewCardForm>
               <div className="pop-new-card__calendar calendar">
                 <p className="calendar__ttl subttl">Даты</p>
                 <div className="calendar__block">
@@ -139,10 +139,10 @@ export default function PopNewcard() {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="pop-new-card__categories categories">
-              <p className="categories__p subttl">Категория</p>
-              <div className="categories__themes">
+            </PopNewCardWrap>
+            <PopNewCardCategories>
+              <CategoriesP>Категория</CategoriesP>
+              <CategoriesThemes>
                 <div className="categories__theme _orange _active-category">
                   <p className="_orange">Web Design</p>
                 </div>
@@ -152,14 +152,14 @@ export default function PopNewcard() {
                 <div className="categories__theme _purple">
                   <p className="_purple">Copywriting</p>
                 </div>
-              </div>
-            </div>
-            <button className="form-new__create _hover01" id="btnCreate">
+              </CategoriesThemes>
+            </PopNewCardCategories>
+            <FormNewCreate>
               Создать задачу
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+            </FormNewCreate>
+          </PopNewCardContent>
+        </PopNewCardBlock>
+      </PopNewCardContainer>
+    </PopPopNewCard>
   );
 }

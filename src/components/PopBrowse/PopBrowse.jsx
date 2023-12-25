@@ -1,4 +1,4 @@
-import { Calendar } from "../Common/Common.styled";
+
 import {
   FormBrowseFormArea,
   FormBrowseFormBlock,
@@ -11,9 +11,6 @@ import {
   PopBrowseWrap,
   PopPopBrowse,
   Status,
-  StatusP,
-  StatusThemeGray,
-  StatusThemeHide,
   StatusThemes,
 } from "./PopBrowse.styled";
 
@@ -30,23 +27,23 @@ export default function PopBrowse() {
               </div>
             </PopBrowseTopBlock>
             <Status>
-              <StatusP>Статус</StatusP>
+              <p className="status__p subttl">Статус</p>
               <StatusThemes>
-                <StatusThemeHide>
+                <div className="status__theme _hide">
                   <p>Без статуса</p>
-                </StatusThemeHide>
-                <StatusThemeGray>
+                </div>
+                <div className="status__theme _gray">
                   <p className="_gray">Нужно сделать</p>
-                </StatusThemeGray>
-                <StatusThemeHide>
+                </div>
+                <div className="status__theme _hide">
                   <p>В работе</p>
-                </StatusThemeHide>
-                <StatusThemeHide>
+                </div>
+                <div className="status__theme _hide">
                   <p>Тестирование</p>
-                </StatusThemeHide>
-                <StatusThemeHide>
+                </div>
+                <div className="status__theme _hide">
                   <p>Готово</p>
-                </StatusThemeHide>
+                </div>
               </StatusThemes>
             </Status>
             <PopBrowseWrap>
@@ -62,7 +59,7 @@ export default function PopBrowse() {
                   ></FormBrowseFormArea>
                 </FormBrowseFormBlock>
               </PopBrowseForm>
-              <Calendar>
+              <div className="pop-new-card__calendar calendar">
                 <p className="calendar__ttl subttl">Даты</p>
                 <div className="calendar__block">
                   <div className="calendar__nav">
@@ -163,15 +160,15 @@ export default function PopBrowse() {
                     </p>
                   </div>
                 </div>
-              </Calendar>
+              </div>
             </PopBrowseWrap>
             <div className="theme-down__categories theme-down">
-              <pCategoriesP>Категория</pCategoriesP>
+              <p className="categories__p subttl">Категория</p>
               <div className="categories__theme _orange _active-category">
                 <p className="_orange">Web Design</p>
               </div>
             </div>
-            <div className="pop-browse__btn-browse ">
+            <div className="pop-browse__btn-browse">
               <div className="btn-group">
                 <button className="btn-browse__edit _btn-bor _hover03">
                   <a href="#">Редактировать задачу</a>
