@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { HeaderBlock, HeaderButtonMainNew, HeaderLogo, HeaderLogoImg, HeaderNav, HeaderPopUserSetButton, HeaderPopUserSetButtonA, HeaderPopUserSetMail, HeaderPopUserSetName, HeaderPopUserSetTheme, HeaderPopUserSetThemeInput, HeaderPopUserSetThemeP, HeaderUserA, StyledHeader } from "./Header.styled";
+import { HeaderBlock, HeaderButtonMainNew, HeaderLogo, HeaderLogoImg, HeaderNav, HeaderPopUserSet, HeaderPopUserSetButton, HeaderPopUserSetButtonA, HeaderPopUserSetMail, HeaderPopUserSetName, HeaderPopUserSetTheme, HeaderPopUserSetThemeInput, HeaderPopUserSetThemeP, HeaderUserA, StyledHeader } from "./Header.styled";
 import { ContainerContainer } from "../Common/Common.styled";
 
 export default function Header({ addCards }) {
@@ -33,8 +33,7 @@ export default function Header({ addCards }) {
               Ivan Ivanov
             </HeaderUserA>
             {isOpen && (
-              <div
-                className="header__pop-user-set pop-user-set"
+              <HeaderPopUserSet
                 id="user-set-target"
               >
                 {/* <!-- <a href="">x</a> --> */}
@@ -47,7 +46,7 @@ export default function Header({ addCards }) {
                 <HeaderPopUserSetButton>
                   <HeaderPopUserSetButtonA href="#popExit">Выйти</HeaderPopUserSetButtonA>
                 </HeaderPopUserSetButton>
-              </div>
+              </HeaderPopUserSet>
             )}
           </HeaderNav>
         </HeaderBlock>

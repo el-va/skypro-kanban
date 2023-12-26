@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Subttl } from "../Common/Common.styled";
+import { Subttl, hover01, hover03 } from "../Common/Common.styled";
 
 export const PopPopBrowse = styled.div`
   display: none;
@@ -75,10 +75,10 @@ export const StatusThemeP = styled.div`
   line-height: 1;
   letter-spacing: -0.14px;
 `
-export const StatusThemeHide = styled.div`
+export const StatusThemeHide = styled(StatusTheme)`
   display: none;
 `
-export const StatusThemeGray = styled.div`
+export const StatusThemeGray = styled(StatusTheme)`
   background: #94A6BE;
   color: #FFFFFF;
 `
@@ -125,4 +125,47 @@ export const NavAction = styled.div`
 `
 export const NavActionSvg = styled.div`
   fill: #94A6BE;
+`
+export const PopBrowseBtnBrowse = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+`
+
+export const PopBrowseBtnEdit = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+`
+export const PopBrowseBtnGroup = styled.div`
+    width: 100%;
+`
+export const PopBrowseBtnBor = styled.button`
+  border-radius: 4px;
+  border: 0.7px solid var(--palette-navy-60, #565EEF);
+  outline: none;
+  background: transparent;
+  color: #565EEF;
+
+  ${hover03}
+`
+export const PopBrowseBtnBorA = styled.a`
+  color: #565EEF;
+`
+export const PopBrowseBtnBg = styled.button`
+  border-radius: 4px;
+  background: #565EEF;
+  border: none;
+  outline: none;
+  color: #FFFFFF;
+
+  ${hover01}
+`
+export const PopBrowseBtnBgA = styled.a`
+  color: #FFFFFF;
+`
+export const PopBrowseBtnEditHide = styled(PopBrowseBtnEdit)`
+  display: none;
 `

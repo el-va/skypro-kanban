@@ -9,12 +9,12 @@ export default function PopExit() {
           <PopExitTtl>
             <h2>Выйти из аккаунта?</h2>
           </PopExitTtl>
-          <form className="pop-exit__form" id="formExit" action="#">
+          <PopExitFormGroup id="formExit" action="#">
             <PopExitFormGroup>
               <PopExitYes><PopExitYesA href="modal/signin.html">Да, выйти</PopExitYesA> </PopExitYes>
               <PopExitNo><PopExitNoA href="main.html">Нет, остаться</PopExitNoA> </PopExitNo>
             </PopExitFormGroup>
-          </form>
+          </PopExitFormGroup>
         </PopExitBlock>
       </PopExitContainer>
     </PopExitPop>

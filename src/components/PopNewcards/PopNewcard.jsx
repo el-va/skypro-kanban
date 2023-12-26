@@ -1,6 +1,26 @@
-
-import { CategoriesP } from "../Common/Common.styled";
-import { CategoriesThemes, FormNewArea, FormNewBlock, FormNewCreate, FormNewInput, PopNewCardBlock, PopNewCardCategories, PopNewCardClose, PopNewCardContainer, PopNewCardContent, PopNewCardForm, PopNewCardTtl, PopNewCardWrap, PopPopNewCard } from "./PopNewCard.styled";
+import {
+  CategoriesP,
+  CategoriesTheme,
+  CategoriesThemeP,
+  CategoriesThemes,
+  PopNewCardCalendar,
+  SubttlLabel,
+} from "../Common/Common.styled";
+import {
+  FormNewArea,
+  FormNewBlock,
+  FormNewCreate,
+  FormNewInput,
+  PopNewCardBlock,
+  PopNewCardCategories,
+  PopNewCardClose,
+  PopNewCardContainer,
+  PopNewCardContent,
+  PopNewCardForm,
+  PopNewCardTtl,
+  PopNewCardWrap,
+  PopPopNewCard,
+} from "./PopNewCard.styled";
 
 export default function PopNewcard() {
   return (
@@ -9,17 +29,11 @@ export default function PopNewcard() {
         <PopNewCardBlock>
           <PopNewCardContent>
             <PopNewCardTtl>Создание задачи</PopNewCardTtl>
-            <PopNewCardClose href="#">
-              &#10006;
-            </PopNewCardClose>
+            <PopNewCardClose href="#">&#10006;</PopNewCardClose>
             <PopNewCardWrap>
-              <PopNewCardForm
-                action="#"
-              >
+              <PopNewCardForm action="#">
                 <FormNewBlock>
-                  <label htmlFor="formTitle" className="subttl">
-                    Название задачи
-                  </label>
+                  <SubttlLabel>Название задачи</SubttlLabel>
                   <FormNewInput
                     type="text"
                     name="name"
@@ -29,9 +43,7 @@ export default function PopNewcard() {
                   />
                 </FormNewBlock>
                 <FormNewBlock>
-                  <label htmlFor="textArea" className="subttl">
-                    Описание задачи
-                  </label>
+                  <SubttlLabel>Описание задачи</SubttlLabel>
                   <FormNewArea
                     name="text"
                     id="textArea"
@@ -39,7 +51,7 @@ export default function PopNewcard() {
                   ></FormNewArea>
                 </FormNewBlock>
               </PopNewCardForm>
-              <div className="pop-new-card__calendar calendar">
+              <PopNewCardCalendar>
                 <p className="calendar__ttl subttl">Даты</p>
                 <div className="calendar__block">
                   <div className="calendar__nav">
@@ -138,25 +150,23 @@ export default function PopNewcard() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </PopNewCardCalendar>
             </PopNewCardWrap>
             <PopNewCardCategories>
               <CategoriesP>Категория</CategoriesP>
               <CategoriesThemes>
-                <div className="categories__theme _orange _active-category">
-                  <p className="_orange">Web Design</p>
-                </div>
-                <div className="categories__theme _green">
-                  <p className="_green">Research</p>
-                </div>
-                <div className="categories__theme _purple">
-                  <p className="_purple">Copywriting</p>
-                </div>
+                <CategoriesTheme $themeColor="orange">
+                  <CategoriesThemeP>Web Design</CategoriesThemeP>
+                </CategoriesTheme>
+                <CategoriesTheme $themeColor="green">
+                  <CategoriesThemeP>Research</CategoriesThemeP>
+                </CategoriesTheme>
+                <CategoriesTheme $themeColor="purple">
+                  <CategoriesThemeP>Copywriting</CategoriesThemeP>
+                </CategoriesTheme>
               </CategoriesThemes>
             </PopNewCardCategories>
-            <FormNewCreate>
-              Создать задачу
-            </FormNewCreate>
+            <FormNewCreate>Создать задачу</FormNewCreate>
           </PopNewCardContent>
         </PopNewCardBlock>
       </PopNewCardContainer>

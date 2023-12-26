@@ -128,21 +128,7 @@ export const FormNewArea = styled.textarea`
   letter-spacing: -0.14px;
   }
 `
-export const CategoriesThemes = styled.div`
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: flex-start;
-  justify-content: flex-start;
-`
-export const CategoriesTheme = styled.div`
-  display: inline-block;
-  width: auto;
-  height: 30px;
-  padding: 8px 20px;
-  border-radius: 24px;
-  margin-right: 7px;
-  opacity: 0.4;
-`
+
 export const FormNewCreate = styled.button`
     width: 100%;
     height: 40px;

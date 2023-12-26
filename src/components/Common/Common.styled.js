@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { breakpoints } from "../../lib/breakpoints";
+import { themeStyles } from "../../lib/theme";
 
 export const ContainerContainer = styled.div`
   max-width: 1260px;
@@ -34,15 +35,6 @@ export const hover03A = css`
   color: #FFFFFF;
 }
 `
-export const CategoriesTheme = styled.div`
-  display: inline-block;
-  width: auto;
-  height: 30px;
-  padding: 8px 20px;
-  border-radius: 24px;
-  margin-right: 7px;
-  opacity: 0.4;
-`
 
 export const Calendar = styled.div`
   width: 182px;
@@ -62,6 +54,13 @@ export const Subttl = styled.p`
   font-weight: 600;
   line-height: 1;
 `
+export const SubttlLabel = styled.label`
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+`
+
 export const CalendarBlock = styled.div`
   display: block;
 `
@@ -129,4 +128,59 @@ export const Categories = styled.div`
 `
 export const CategoriesP = styled(Subttl)`
   margin-bottom: 14px;
+`
+
+export const CategoriesThemes = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+`
+export const CategoriesThemeP = styled.p`
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 14px;
+  white-space: nowrap;
+`
+export const CategoriesTheme = styled.div`
+  display: inline-block;
+  width: auto;
+  height: 30px;
+  padding: 8px 20px;
+  border-radius: 24px;
+  margin-right: 7px;
+  opacity: 0.4;
+  background-color: ${({ $themeColor }) =>
+    themeStyles[$themeColor]?.backgroundColor || "#b4fdd1"};
+
+  ${CategoriesThemeP} {
+    color: ${({ $themeColor }) => themeStyles[$themeColor]?.color || "#06b16e"};
+  }
+`
+
+export const StatusP = styled(Subttl)`
+  margin-bottom: 14px;
+`
+export const StatusThemeP = styled.p`
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: -0.14px;
+`
+export const StatusTheme = styled.div`
+  border-radius: 24px;
+  border: 0.7px solid rgba(148, 166, 190, 0.4);
+  color: #94A6BE;
+  padding: 11px 14px 10px;
+  margin-right: 7px;
+  margin-bottom: 7px;
+  background-color: ${({ $themeColor }) =>
+    themeStyles[$themeColor]?.backgroundColor || "#b4fdd1"};
+
+  ${StatusThemeP} {
+    color: ${({ $themeColor }) => themeStyles[$themeColor]?.color || "#06b16e"};
+  }
+`
+export const CategoriesThemeDown = styled.div`
+    display: block;
+    margin-bottom: 20px;
 `

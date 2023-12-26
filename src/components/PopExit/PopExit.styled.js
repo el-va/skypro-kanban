@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { breakpoints } from "../../lib/breakpoints";
 import { hover01, hover03 } from "../Common/Common.styled";
-// import { breakpoints } from "../../lib/breakpoints";
 
 export const PopExitPop = styled.div`
   display: none;
