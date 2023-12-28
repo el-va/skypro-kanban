@@ -1,10 +1,12 @@
 // import Container from "../Container/Container"
 
+import { MainMain } from "./Main.styled";
+
 export default function Main({children}) {
-    return (
-      <main className="main">
-        {children}
-        {/* <Container /> */}
-      </main>
-    )
+  return (
+    <MainMain>
+      {children}
+      {/* <Container /> */}
+    </MainMain>
+  )
 }

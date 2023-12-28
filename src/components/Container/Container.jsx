@@ -1,11 +1,13 @@
 import { statusList } from "../../data";
 import Column from "../Column/Column";
+import { ContainerContainer } from "../Common/Common.styled";
+import { MainBlock, MainContent } from "./Container.styled";
 
 export default function Container({ cards }) {
   return (
-    <div className="container">
-      <div className="main__block">
-        <div className="main__content">
+    <ContainerContainer>
+      <MainBlock>
+        <MainContent>
           {statusList.map((status) => (
             <Column
               key={status}
@@ -13,8 +15,8 @@ export default function Container({ cards }) {
               tasks={cards.filter((card) => card.status === status)}
             />
           ))}
-        </div>
-      </div>
-    </div>
+        </MainContent>
+      </MainBlock>
+    </ContainerContainer>
   );
 }
