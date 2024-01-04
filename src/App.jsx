@@ -1,55 +1,43 @@
-import { useEffect, useState } from "react";
 import "./App.css";
-import Container from "./components/Container/Container";
-import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
-import PopBrowse from "./components/PopBrowse/PopBrowse";
-import PopExit from "./components/PopExit/PopExit";
-import PopNewcard from "./components/PopNewcards/PopNewcard";
-import { cardList } from "./data";
+import { AppRoutes } from "./lib/Approutes";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import MainPage from "./pages/MainPage/MainPage";
+import PrivateRoute from "./pages/PrivateRoute";
+import { useState } from "react";
+import SignIn from "./pages/SignIn/SignIn";
+import SignUp from "./pages/SignUp/SignUp";
+import CardPage from "./pages/CardPage/CardPage";
+import NotFound from "./pages/NotFound/NotFound";
+import Exit from "./pages/Exit/Exit";
 
 function App() {
-  const [cards, setCards] = useState(cardList);
 
-  function addCards() {
-    const newCard = {
-      id: cards.length + 1,
-      theme: "New Theme",
-      title: "Новая задача",
-      date: "30.10.23",
-      status: "Без статуса",
-      color: "_yellow"
-    };
-    setCards([...cards, newCard]);
+  let navigate = useNavigate();
+  const [isAuth, setIsAuth] = useState(localStorage.getItem('token'));
+
+  function exitAuth() {
+    localStorage.removeItem('token')
+    setIsAuth(false);
+    navigate(AppRoutes.SIGNIN)
   }
-
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  }, []);
-
+  function loginAuth() {
+    localStorage.setItem('token', '123456')
+    setIsAuth(localStorage.getItem('token'));
+    navigate(AppRoutes.HOME)
+  }
+  
   return (
-    <>
-      <div className="wrapper">
-        <PopExit />
-        <PopNewcard />
-        <PopBrowse />
-        <Header addCards={addCards} />
+    <Routes>
+      <Route element={<PrivateRoute isAuth={isAuth} />}>
+        <Route path={AppRoutes.HOME} element={<MainPage />} />
+        <Route path={AppRoutes.EXIT} element={<Exit exitAuth={exitAuth} />} />
+        <Route path={AppRoutes.CARD} element={<CardPage />} />
+        </Route>
 
-        {isLoading ? (
-          <div className="loading">Загрузка страницы...</div>
-        ) : (
-          <Main>
-            <Container cards={cards} />
-          </Main>
-        )}
-      </div>
-
-      <script src="js/script.js"></script>
-    </>
+        <Route path={AppRoutes.SIGNIN} element={<SignIn loginAuth={loginAuth} />} />
+        <Route path={AppRoutes.SIGNUP} element={<SignUp loginAuth={loginAuth} />} />
+        <Route path={AppRoutes.NOT_FOUND} element={<NotFound />} />
+        </Routes>
   );
 }
 

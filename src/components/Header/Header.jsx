@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { HeaderBlock, HeaderButtonMainNew, HeaderLogo, HeaderLogoImg, HeaderNav, HeaderPopUserSet, HeaderPopUserSetButton, HeaderPopUserSetButtonA, HeaderPopUserSetMail, HeaderPopUserSetName, HeaderPopUserSetTheme, HeaderPopUserSetThemeInput, HeaderPopUserSetThemeP, HeaderUserA, StyledHeader } from "./Header.styled";
 import { ContainerContainer } from "../Common/Common.styled";
+// import { AppRoutes } from "../../lib/Approutes";
+// import { Link } from "react-router-dom";
 
 export default function Header({ addCards }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,6 +47,7 @@ export default function Header({ addCards }) {
                 </HeaderPopUserSetTheme>
                 <HeaderPopUserSetButton>
                   <HeaderPopUserSetButtonA href="#popExit">Выйти</HeaderPopUserSetButtonA>
+                  {/* <Link to={AppRoutes.EXIT}>Выйти</Link> */}
                 </HeaderPopUserSetButton>
               </HeaderPopUserSet>
             )}
