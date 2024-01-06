@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { cardList } from "../../data";
-import PopExit from "../../components/PopExit/PopExit";
+// import PopExit from "../../components/PopExit/PopExit";
 import PopNewcard from "../../components/PopNewcards/PopNewcard";
-import PopBrowse from "../../components/PopBrowse/PopBrowse";
+// import PopBrowse from "../../components/PopBrowse/PopBrowse";
 import Header from "../../components/Header/Header";
 import Main from "../../components/Main/Main";
 import Container from "../../components/Container/Container";
@@ -34,10 +34,10 @@ export default function MainPage() {
   return (
 <>
       <div className="wrapper">
-        <PopExit />
+        {/* <PopExit /> */}
         <Outlet />
         <PopNewcard />
-        <PopBrowse />
+        {/* <PopBrowse /> */}
         <Header addCards={addCards} />
 
         {isLoading ? (

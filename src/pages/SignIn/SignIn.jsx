@@ -14,7 +14,7 @@ export default function SignIn(loginAuth) {
 						<input className="modal__input" type="text" name="login" id="formlogin" placeholder="Эл. почта" />
                             
 						<input className="modal__input" type="password" name="password" id="formpassword" placeholder="Пароль" />
-						<button className="modal__btn-enter _hover01" id="btnEnter" onClick={loginAuth}>
+						<button className="modal__btn-enter _hover01" id="btnEnter" onClick={() => loginAuth}>
                             {/* <a href="../main.html">Войти</a> */}
                             </button>
                             <Link to={AppRoutes.HOME}>Войти</Link>

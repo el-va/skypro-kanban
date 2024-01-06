@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Subttl, hover01, hover03 } from "../Common/Common.styled";
 
 export const PopPopBrowse = styled.div`
-  display: none;
+  display: block;
   width: 100%;
   height: 100%;
   min-width: 375px;

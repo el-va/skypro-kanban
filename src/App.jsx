@@ -10,6 +10,7 @@ import CardPage from "./pages/CardPage/CardPage";
 import NotFound from "./pages/NotFound/NotFound";
 import Exit from "./pages/Exit/Exit";
 
+
 function App() {
 
   let navigate = useNavigate();
@@ -27,18 +28,41 @@ function App() {
   }
   
   return (
-    <Routes>
-      <Route element={<PrivateRoute isAuth={isAuth} />}>
-        <Route path={AppRoutes.HOME} element={<MainPage />} />
-        <Route path={AppRoutes.EXIT} element={<Exit exitAuth={exitAuth} />} />
-        <Route path={AppRoutes.CARD} element={<CardPage />} />
-        </Route>
 
+    <Routes>
+      <Route path={AppRoutes.HOME} element={<PrivateRoute isAuth={isAuth}><MainPage /></ PrivateRoute >}></Route>
+      <Route path={AppRoutes.EXIT} element={<PrivateRoute isAuth={isAuth}><Exit exitAuth={exitAuth} /></ PrivateRoute >}></Route>
+      <Route path={AppRoutes.CARD} element={<PrivateRoute isAuth={isAuth}><CardPage /></ PrivateRoute >}></Route>
+    
         <Route path={AppRoutes.SIGNIN} element={<SignIn loginAuth={loginAuth} />} />
         <Route path={AppRoutes.SIGNUP} element={<SignUp loginAuth={loginAuth} />} />
         <Route path={AppRoutes.NOT_FOUND} element={<NotFound />} />
-        </Routes>
-  );
+    </Routes>
+
+);
 }
+/* <Routes>
+<Route path={AppRoutes.HOME} element={<PrivateRoute isAuth={isAuth}><MainPage /></ PrivateRoute >}></Route>
+<Route path={AppRoutes.EXIT} element={<Exit exitAuth={exitAuth} />}></Route>
+<Route path={AppRoutes.CARD} element={<CardPage />}></Route>
+
+  <Route path={AppRoutes.SIGNIN} element={<SignIn loginAuth={loginAuth} />} />
+  <Route path={AppRoutes.SIGNUP} element={<SignUp loginAuth={loginAuth} />} />
+  <Route path={AppRoutes.NOT_FOUND} element={<NotFound />} />
+</Routes> */
+  
+
+//     <Routes>
+//       <Route element={<PrivateRoute />}>
+//         <Route path={AppRoutes.HOME} element={<MainPage />} />
+//         <Route path={AppRoutes.EXIT} element={<Exit  />} />
+//         <Route path={AppRoutes.CARD} element={<CardPage />} />
+//         </Route>
+//     <Route path={AppRoutes.SIGNIN} element={<SignIn  />} />
+//     <Route path={AppRoutes.SIGNUP} element={<SignUp  />} />
+//     <Route path={AppRoutes.NOT_FOUND} element={<NotFound />} />
+// </Routes>
+//   )
+// }
 
 export default App;
