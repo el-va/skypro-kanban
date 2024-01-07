@@ -34,6 +34,7 @@ import {
 
 export default function PopBrowse() {
   return (
+
     <PopPopBrowse>
       <PopBrowseContainer>
         <PopBrowseBlock>
@@ -223,5 +224,6 @@ export default function PopBrowse() {
         </PopBrowseBlock>
       </PopBrowseContainer>
     </PopPopBrowse>
-  );
+
+)
 }
