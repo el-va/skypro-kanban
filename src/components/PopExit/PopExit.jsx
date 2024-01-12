@@ -5,7 +5,7 @@ import { AppRoutes } from "../../lib/Approutes";
 
 
 export default function PopExit() {
-const navigate = useNavigate;
+const navigate = useNavigate();
 
 function exitNo(e) {
   e.preventDefault()
