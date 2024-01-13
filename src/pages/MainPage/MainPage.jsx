@@ -6,7 +6,7 @@ import Main from "../../components/Main/Main";
 import Container from "../../components/Container/Container";
 import { Outlet } from "react-router-dom";
 import { getTasks } from "../../Api";
-// import gif from "./assets/gif.gif";
+import gif from "../../assets/gif.gif";
 
 export default function MainPage() {
     const [cards, setCards] = useState(cardList);
@@ -14,7 +14,7 @@ export default function MainPage() {
     function addCards() {
       const newCard = {
         id: cards.length + 1,
-        theme: "New Theme",
+        topic: "New Theme",
         title: "Новая задача",
         date: "30.10.23",
         status: "Без статуса",
@@ -50,7 +50,7 @@ export default function MainPage() {
 
         {isLoading ? (
           <div className="loading">
-            {/* <img src={gif} alt="loading..." /> */}
+            <img src={gif} alt="loading..." />
             Загрузка страницы...</div>
         ) : (
           <Main>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { AppRoutes } from "../../lib/Approutes";
 import { useState } from "react";
 
-export default function SignUp({ setAuth }) {
+export default function SignUp({ setReg }) {
 
   const [regData, setRegData] = useState({
     login: "",
@@ -20,7 +20,7 @@ export default function SignUp({ setAuth }) {
   function onNameChange(event) {
     setRegData({
       ...regData,
-      login: event.target.value,
+      name: event.target.value,
     });
   }
 
@@ -72,7 +72,7 @@ export default function SignUp({ setAuth }) {
                 id="SignUpEnter"
                 onClick={(event) => {
                   event.preventDefault();
-                  setAuth(regData);
+                  setReg(regData);
                 }}
               >
 				Зарегистрироваться

@@ -16,7 +16,7 @@ export const themeStyles = {
     color: "#ffffff",
   },
   _yellow: {
-    background: "rgb(255, 255, 94)",
+    backgroundColor: "rgb(255, 255, 94)",
     color: "darkorange",
   },
   _hide: {
