@@ -1,7 +1,28 @@
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../../lib/Approutes";
+import { useState } from "react";
 
-export default function SignIn({loginAuth}) {
+export default function SignIn({ setAuth }) {
+  
+  const [loginData, setLoginData] = useState({
+    login: "",
+    password: "",
+  });
+
+  function onLoginChange(event) {
+    setLoginData({
+      ...loginData,
+      login: event.target.value,
+    });
+  }
+
+  function onPasswordChange(event) {
+    setLoginData({
+      ...loginData,
+      password: event.target.value,
+    });
+  }
+
   return (
     <div className="wrapper">
       <div className="container-signin">
@@ -16,7 +37,9 @@ export default function SignIn({loginAuth}) {
                 type="text"
                 name="login"
                 id="formlogin"
-                placeholder="Эл. почта"
+                placeholder="Логин"
+                value={loginData.login}
+                onChange={onLoginChange}
               />
 
               <input
@@ -25,14 +48,18 @@ export default function SignIn({loginAuth}) {
                 name="password"
                 id="formpassword"
                 placeholder="Пароль"
+                value={loginData.password}
+                onChange={onPasswordChange}
               />
               <button
                 className="modal__btn-enter _hover01"
                 id="btnEnter"
-                onClick={loginAuth}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setAuth(loginData);
+                }}
               >
-              <Link to={AppRoutes.HOME}>Войти</Link>
-
+                Войти
                 {/* <a href="../main.html">Войти</a> */}
               </button>
               {/* <Link to={AppRoutes.HOME}>Войти</Link> */}
@@ -48,9 +75,3 @@ export default function SignIn({loginAuth}) {
     </div>
   );
 }
-// if (!token) {
-//     const autoriz = document.getElementById("autorization");
-//     autoriz.addEventListener("click", () => {
-
-//     });
-//   };

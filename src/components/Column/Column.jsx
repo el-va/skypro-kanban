@@ -11,11 +11,11 @@ export default function Column({ tasks, title }) {
         <div>
           {tasks.map((task) => (
             <Card
-              key={task.id}
+              key={task._id}
               id={task.id}
               title={task.title}
               date={task.date}
-              theme={task.theme}
+              topic={task.topic}
               status={task.status}
               color={task.color}    
             />
