@@ -15,13 +15,13 @@ import {
 } from "./Card.styled";
 import { AppRoutes } from "../../lib/Approutes";
 
-export default function Card({ color, theme, title, date }) {
+export default function Card({ color, topic, title, date }) {
   return (
     <CardItem>
       <CardsCard>
         <CardGroup>
           <CardTheme $themeColor={color}>
-            <ThemeP>{theme}</ThemeP>
+            <ThemeP>{topic}</ThemeP>
           </CardTheme>
           {/* <div className={`card__theme ${color}`}>
             <p className={color}>{theme}</p>
