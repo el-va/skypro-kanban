@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-// import PopBrowse from "../PopBrowse/PopBrowse";
 import {
-  CardBtn,
+  CardBtnDiv,
   CardContent,
   CardDate,
   CardDateP,
@@ -26,13 +25,13 @@ export default function Card({ color, topic, title, date }) {
           {/* <div className={`card__theme ${color}`}>
             <p className={color}>{theme}</p>
           </div> */}
-          <Link to={AppRoutes.CARD}>
+          <Link to={AppRoutes.CARD} target="_self">
           {/* <a href="#popBrowse" target="_self"> */}
-            <CardBtn>
+            <CardBtnDiv>
               <div></div>
               <div></div>
               <div></div>
-            </CardBtn>
+            </CardBtnDiv>
           {/* </a> */}
           </Link>
         </CardGroup>

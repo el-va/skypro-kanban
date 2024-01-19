@@ -145,12 +145,12 @@ export const HeaderPopUserSetThemeInput = styled.input`
 }
 `
 export const HeaderPopUserSetButton = styled.button`
-  width: 72px;
+  /* width: 72px;
   height: 30px;
   background: transparent;
   color: #565EEF;
   border-radius: 4px;
-  border: 1px solid #565EEF;
+  border: 1px solid #565EEF; */
 
   ${hover03}
 `
