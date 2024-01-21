@@ -37,7 +37,8 @@ import { AppRoutes } from "../../lib/Approutes";
 import Calendar from "../Calendar/Calendar";
 import { deleteTask } from "../../Api";
 
-export default function PopBrowse() {
+export default function PopBrowse({taskId}) {
+  
   return (
     <PopPopBrowse id="popBrowse">
       <PopBrowseContainer>
@@ -97,9 +98,9 @@ export default function PopBrowse() {
                 <button className="btn-browse__edit _btn-bor _hover03">
                   <a href="#">Редактировать задачу</a>
                 </button>
-                <button className="btn-browse__delete _btn-bor _hover03" onClick={deleteTask}>
+                <button className="btn-browse__delete _btn-bor _hover03">
+                  <a onClick={deleteTask({taskId})}>Удалить задачу</a>
                   {/* <a href="#">Удалить задачу</a> */}
-                  Удалить задачу
                 </button>
               </div>
               <button className="btn-browse__close _btn-bg _hover01">

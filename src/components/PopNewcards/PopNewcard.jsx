@@ -43,7 +43,7 @@ export default function PopNewcard() {
       ...newCard,
       date: selected,
     };
-    // console.log(cardData);
+    console.log(cardData);
     addTask({cardData});
     navigate(AppRoutes.MAIN);
 

@@ -8,42 +8,41 @@ import { Outlet } from "react-router-dom";
 import { getTasks } from "../../Api";
 import gif from "../../assets/gif.gif";
 import useUser from "../../hooks/UseUser";
+// import useTask from "../../hooks/UseTask";
 
 export default function MainPage() {
-    const [cards, setCards] = useState(null);
+  const [cards, setCards] = useState(null);
 
-    // function addCards() {
-    //   const newCard = {
-    //     id: cards.length + 1,
-    //     topic: "New Theme",
-    //     title: "Новая задача",
-    //     date: "30.10.23",
-    //     status: "Без статуса",
-    //     color: "_yellow"
-    //   };
-    //   setCards([...cards, newCard]);
-    // }
-  
-    const [isLoading, setIsLoading] = useState(true);
-  
-    // useEffect(() => {
-    //   setTimeout(() => {
-    //     setIsLoading(false);
-    //   }, 2000);
-    // }, []);
+  // function addCards() {
+  //   const newCard = {
+  //     id: cards.length + 1,
+  //     topic: "New Theme",
+  //     title: "Новая задача",
+  //     date: "30.10.23",
+  //     status: "Без статуса",
+  //     color: "_yellow"
+  //   };
+  //   setCards([...cards, newCard]);
+  // }
 
-    const {user}=useUser()
+  const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-      getTasks({user}).then((data) => {
-        console.log(data.tasks);
-        setCards(data.tasks);
-        setIsLoading(false)
-      });
-    }, [user]);
+  const { user } = useUser();
+  // const { toTask } = useTask();
+
+  useEffect(() => {
+    getTasks({ user }).then((data) => {
+      // toTask(data);
+      console.log(data.tasks);
+      setCards(data.tasks);
+      setIsLoading(false);
+    });
+  }, [user]);
+// }, [user, toTask]);
+
 
   return (
-<>
+    <>
       <div className="wrapper">
         {/* <PopExit /> */}
         <Outlet />
@@ -54,7 +53,8 @@ export default function MainPage() {
         {isLoading ? (
           <div className="loading">
             <img src={gif} alt="loading..." />
-            Загрузка страницы...</div>
+            Загрузка страницы...
+          </div>
         ) : (
           <Main>
             <Container cards={cards} />
