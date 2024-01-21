@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Calendar from "../Calendar/Calendar";
 import {
-  CategoriesP,
+  // CategoriesP,
   // CategoriesTheme,
   // CategoriesThemeP,
-  CategoriesThemes,
+  // CategoriesThemes,
   // PopNewCardCalendar,
   SubttlLabel,
 } from "../Common/Common.styled";
@@ -24,50 +24,36 @@ import {
   PopPopNewCard,
 } from "./PopNewCard.styled";
 import { AppRoutes } from "../../lib/Approutes";
+import { useState } from "react";
+import { addTask } from "../../Api";
 
-export default function PopNewcard( {addCards}) {
+export default function PopNewcard() {
+  const [selected, setSelected] = useState(null);
+
+  const [newCard, setNewCard] = useState({
+    title: "",
+    topic: "",
+    description: "",
+  });
+
+  const navigate = useNavigate();
+
+  function onBtnSubmit() {
+    const cardData = {
+      ...newCard,
+      date: selected,
+    };
+    // console.log(cardData);
+    addTask({cardData});
+    navigate(AppRoutes.MAIN);
+
+    // addTask(cardData).then((data) => {
+    //   setNewCard(data);
+    //   navigate(AppRoutes.MAIN);
+    // });
+  }
+
   return (
-    // <div class="prod_checbox">
-    //     <div class="radio-toolbar">
-    //         <input type="radio" id="radio1" name="radios" value="Стандатный" checked>
-    //         <label for="radio1">Стандатный</label>
-
-    //         <input type="radio" id="radio2" name="radios" value="Морозостойкий">
-    //         <label for="radio2">Морозостойкий</label>
-
-    //         <input type="radio" id="radio3" name="radios" value="Паростойкий">
-    //         <label for="radio3">Паростойкий</label>
-    //     </div>
-    // </div>
-
-    // css
-    // .prod_checbox strong {font-size: 14px;
-    //     color: #333;
-    //     display: inline-block;
-    //     margin-right: 10px;
-    //     letter-spacing: 0.5px;}
-
-    // .radio-toolbar input[type="radio"] {
-    //     display: none;
-    // }
-
-    // .radio-toolbar label {
-    //     display: inline-block;
-    //     padding: 2px 9px;
-    //     cursor: pointer;
-    //     border: 1px solid #DAD0FF;
-    // }
-
-    // .radio-toolbar input[type="radio"]:checked+label {
-    //     background-color: #d0ffb7;
-    //     border: 1px solid #1CA92E;
-    // }
-
-    // .radio-toolbar label:hover {
-    //     background-color: #d0ffb7;
-    //     border: 1px solid #1CA92E;
-    // }
-
     <PopPopNewCard id="popNewCard">
       <PopNewCardContainer>
         <PopNewCardBlock>
@@ -75,7 +61,7 @@ export default function PopNewcard( {addCards}) {
             <PopNewCardTtl>Создание задачи</PopNewCardTtl>
             <PopNewCardClose href="#">
               <Link to={AppRoutes.HOME}>&#10006;</Link>
-              </PopNewCardClose>
+            </PopNewCardClose>
             <PopNewCardWrap>
               <PopNewCardForm id="formNewCard" action="#">
                 <FormNewBlock>
@@ -86,6 +72,10 @@ export default function PopNewcard( {addCards}) {
                     id="formTitle"
                     placeholder="Введите название задачи..."
                     autoFocus
+                    value={newCard.title}
+                    onChange={(event) =>
+                      setNewCard({ ...newCard, title: event.target.value })
+                    }
                   />
                 </FormNewBlock>
                 <FormNewBlock>
@@ -94,15 +84,22 @@ export default function PopNewcard( {addCards}) {
                     name="text"
                     id="textArea"
                     placeholder="Введите описание задачи..."
+                    value={newCard.description}
+                    onChange={(event) =>
+                      setNewCard({
+                        ...newCard,
+                        description: event.target.value,
+                      })
+                    }
                   ></FormNewArea>
                 </FormNewBlock>
               </PopNewCardForm>
-              <Calendar />
+              <Calendar selected={selected} setSelected={setSelected} />
             </PopNewCardWrap>
-            <div className="pop-new-card__categories categories">
+            {/* <div className="pop-new-card__categories categories">
               <CategoriesP>Категория</CategoriesP>
-              <CategoriesThemes>
-                {/* <CategoriesThemes>
+              <CategoriesThemes> */}
+            {/* <CategoriesThemes>
                 <CategoriesTheme $themeColor="orange">
                   <CategoriesThemeP>Web Design</CategoriesThemeP>
                 </CategoriesTheme>
@@ -113,7 +110,7 @@ export default function PopNewcard( {addCards}) {
                   <CategoriesThemeP>Copywriting</CategoriesThemeP>
                 </CategoriesTheme>
               </CategoriesThemes> */}
-
+            {/* 
                 <div className="categories__theme _orange _active-category">
                   <p className="_orange">Web Design</p>
                 </div>
@@ -124,8 +121,50 @@ export default function PopNewcard( {addCards}) {
                   <p className="_purple">Copywriting</p>
                 </div>
               </CategoriesThemes>
+            </div> */}
+
+            <div className="prod_checbox">
+              <div className="radio-toolbar">
+                <input
+                  type="radio"
+                  id="radio1"
+                  name="radios"
+                  value="Web Design"
+                  onChange={(event) =>
+                    setNewCard({ ...newCard, topic: event.target.value })
+                  }
+                />
+                <label htmlFor="radio1">Web Design</label>
+
+                <input
+                  type="radio"
+                  id="radio2"
+                  name="radios"
+                  value="Research"
+                  onChange={(event) =>
+                    setNewCard({ ...newCard, topic: event.target.value })
+                  }
+                />
+                <label htmlFor="radio2">Research</label>
+
+                <input
+                  type="radio"
+                  id="radio3"
+                  name="radios"
+                  value="Copywriting"
+                  onChange={(event) =>
+                    setNewCard({ ...newCard, topic: event.target.value })
+                  }
+                />
+                <label htmlFor="radio3">Copywriting</label>
+              </div>
             </div>
-            <button onClick={addCards} className="form-new__create _hover01" id="btnCreate">
+
+            <button
+              onClick={onBtnSubmit}
+              className="form-new__create _hover01"
+              id="btnCreate"
+            >
               Создать задачу
             </button>
           </PopNewCardContent>

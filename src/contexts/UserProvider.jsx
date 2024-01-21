@@ -26,6 +26,8 @@ export function UserProvider({ children }) {
     </UserContext.Provider>
   );
 
+  
+
   // const user = useContext(UserContext);
 
   // if (!user) {

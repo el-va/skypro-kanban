@@ -35,6 +35,7 @@ import {
 } from "./PopBrowse.styled";
 import { AppRoutes } from "../../lib/Approutes";
 import Calendar from "../Calendar/Calendar";
+import { deleteTask } from "../../Api";
 
 export default function PopBrowse() {
   return (
@@ -77,7 +78,7 @@ export default function PopBrowse() {
                   <FormBrowseFormArea
                     name="text"
                     id="textArea01"
-                    readonly
+                    readOnly
                     placeholder="Введите описание задачи..."
                   ></FormBrowseFormArea>
                 </FormBrowseFormBlock>
@@ -96,8 +97,9 @@ export default function PopBrowse() {
                 <button className="btn-browse__edit _btn-bor _hover03">
                   <a href="#">Редактировать задачу</a>
                 </button>
-                <button className="btn-browse__delete _btn-bor _hover03">
-                  <a href="#">Удалить задачу</a>
+                <button className="btn-browse__delete _btn-bor _hover03" onClick={deleteTask}>
+                  {/* <a href="#">Удалить задачу</a> */}
+                  Удалить задачу
                 </button>
               </div>
               <button className="btn-browse__close _btn-bg _hover01">

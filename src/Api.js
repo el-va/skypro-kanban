@@ -3,7 +3,7 @@ export let token;
 const API_URL_TASK = "https://wedev-api.sky.pro/api/kanban";
 const API_URL_USER = "https://wedev-api.sky.pro/api/user";
 
-export async function getTasks({user}) {
+export async function getTasks({ user }) {
   // const userData = JSON.parse(localStorage.getItem("user"));
   token = user.token;
 
@@ -30,10 +30,10 @@ export async function postTask({ text }) {
       text,
     }),
   });
-    if (response.status === 400) {
-      alert("Ошибка загрузки")
-      throw new Error("Ошибка загрузки");
-    }
+  if (response.status === 400) {
+    alert("Ошибка загрузки");
+    throw new Error("Ошибка загрузки");
+  }
   const data = await response.json();
   return data;
 }
@@ -77,10 +77,38 @@ export async function regUser({ login, name, password }) {
       Authorization: `Bearer ${token}`,
     },
   });
-    if (response.status === 400) {
-      alert("Пользователь с таким логином уже существует");
-      throw new Error("Пользователь с таким логином уже существует");
-    }
+  if (response.status === 400) {
+    alert("Пользователь с таким логином уже существует");
+    throw new Error("Пользователь с таким логином уже существует");
+  }
+  const data = await response.json();
+  return data;
+}
+
+export async function addTask({ cardData }) {
+  const response = await fetch(API_URL_TASK, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    method: "POST",
+    body: JSON.stringify({
+      title: cardData.title,
+      topic: cardData.topic,
+      description: cardData.description,
+      date: cardData.date,
+    }),
+  });
+  const data = await response.json();
+  return data;
+}
+
+export async function deleteTask({id}) {
+  const response = await fetch(API_URL_TASK + "/:" + id, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
   const data = await response.json();
   return data;
 }

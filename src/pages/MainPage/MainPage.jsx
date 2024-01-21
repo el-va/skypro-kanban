@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { cardList } from "../../data";
+// import { cardList } from "../../data";
 // import PopNewcard from "../../components/PopNewcards/PopNewcard";
 import Header from "../../components/Header/Header";
 import Main from "../../components/Main/Main";
@@ -10,7 +10,7 @@ import gif from "../../assets/gif.gif";
 import useUser from "../../hooks/UseUser";
 
 export default function MainPage() {
-    const [cards, setCards] = useState(cardList);
+    const [cards, setCards] = useState(null);
 
     // function addCards() {
     //   const newCard = {
