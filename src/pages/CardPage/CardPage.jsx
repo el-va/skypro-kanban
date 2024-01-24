@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import PopBrowse from "../../components/PopBrowse/PopBrowse";
 
 export default function CardPage() {
-  const { taskId } = useParams();
+  const { id } = useParams();
 
-  return <PopBrowse taskId={taskId} />;
+  return <PopBrowse taskId={id} />;
 }

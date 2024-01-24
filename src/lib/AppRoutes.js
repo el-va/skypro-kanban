@@ -1,6 +1,6 @@
 export const AppRoutes = {
   HOME: "/",
-  CARD: "/CardPage:id",
+  CARD: "/CardPage/id",
   SIGNIN: "/SignIn",
   SIGNUP: "/SignUp",
   EXIT: "/Exit",
