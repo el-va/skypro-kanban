@@ -98,7 +98,7 @@ export const PopBrowseForm = styled.form`
   display: block;
   margin-bottom: 20px;
 `;
-export const FormBrowseFormBlock = styled.form`
+export const FormBrowseFormBlock = styled.div`
   display: flex;
   flex-direction: column;
 `;

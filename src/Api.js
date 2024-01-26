@@ -104,7 +104,7 @@ export async function addTask({ cardData }) {
 
 export async function deleteTask(id) {
 
-  const response = await fetch(API_URL_TASK + "/:" + id, {
+  const response = await fetch(API_URL_TASK + "/" + id, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`,

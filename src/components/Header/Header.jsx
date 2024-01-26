@@ -17,7 +17,7 @@ import {
   StyledHeader,
 } from "./Header.styled";
 import { ContainerContainer } from "../Common/Common.styled";
-import { AppRoutes } from "../../lib/Approutes";
+import { AppRoutes } from "../../lib/AppRoutes";
 import { Link } from "react-router-dom";
 // import PopExit from "../PopExit/PopExit";
 

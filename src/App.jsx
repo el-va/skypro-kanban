@@ -1,5 +1,4 @@
 import "./App.css";
-import { AppRoutes } from "./lib/Approutes";
 import { Routes, Route } from "react-router-dom";
 import MainPage from "./pages/MainPage/MainPage";
 import PrivateRoute from "./pages/PrivateRoute";
@@ -10,6 +9,7 @@ import CardPage from "./pages/CardPage/CardPage";
 import NotFound from "./pages/NotFound/NotFound";
 import Exit from "./pages/Exit/Exit";
 import AddCardPage from "./pages/AddCardPage/AddCardPage";
+import { AppRoutes } from "./lib/AppRoutes";
 // import { loginUser, regUser } from "./Api";
 
 function App() {

@@ -23,7 +23,7 @@ import {
   PopNewCardWrap,
   PopPopNewCard,
 } from "./PopNewCard.styled";
-import { AppRoutes } from "../../lib/Approutes";
+import { AppRoutes } from "../../lib/AppRoutes";
 import { useState } from "react";
 import { addTask } from "../../Api";
 
@@ -41,15 +41,15 @@ export default function PopNewcard() {
   function onBtnSubmit() {
     const cardData = {
       ...newCard,
-      date: selected,
+      data: selected,
     };
     console.log(cardData);
     addTask({cardData});
-    navigate(AppRoutes.MAIN);
+    navigate(AppRoutes.HOME);
 
     // addTask(cardData).then((data) => {
     //   setNewCard(data);
-    //   navigate(AppRoutes.MAIN);
+    //   navigate(AppRoutes.HOME);
     // });
   }
 

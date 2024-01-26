@@ -12,9 +12,9 @@ import {
   CardsCard,
   ThemeP,
 } from "./Card.styled";
-import { AppRoutes } from "../../lib/Approutes";
+import { AppRoutes } from "../../lib/AppRoutes";
 
-export default function Card({ color, topic, title, date }) {
+export default function Card({ color, topic, title, date, id }) {
   return (
     <CardItem>
       <CardsCard>
@@ -37,7 +37,8 @@ export default function Card({ color, topic, title, date }) {
         </CardGroup>
         <CardContent>
           {/* <a href="" target="_blank"> */}
-          <Link to={AppRoutes.CARD}>
+          {/* <Link to={AppRoutes.CARD}> */}
+          <Link to={`/CardPage/${id}`}>
             <CardTitle>{title}</CardTitle>
           </Link>
           <CardDate>

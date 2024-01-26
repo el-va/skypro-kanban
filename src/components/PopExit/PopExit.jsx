@@ -4,7 +4,7 @@
 // import { AppRoutes } from "../../lib/Approutes";
 import { Link } from "react-router-dom";
 import useUser from "../../hooks/UseUser";
-import { AppRoutes } from "../../lib/Approutes";
+import { AppRoutes } from "../../lib/AppRoutes";
 
 export default function PopExit() {
 

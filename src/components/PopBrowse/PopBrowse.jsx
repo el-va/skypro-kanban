@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   CategoriesP,
   CategoriesTheme,
@@ -33,12 +33,14 @@ import {
   StatusThemeHide,
   StatusThemes,
 } from "./PopBrowse.styled";
-import { AppRoutes } from "../../lib/Approutes";
 import Calendar from "../Calendar/Calendar";
 import { deleteTask } from "../../Api";
+import { AppRoutes } from "../../lib/AppRoutes";
 
-export default function PopBrowse({id}) {
-  
+
+export default function PopBrowse({ id }) {
+const navigate = useNavigate();
+
   return (
     <PopPopBrowse id="popBrowse">
       <PopBrowseContainer>
@@ -99,11 +101,15 @@ export default function PopBrowse({id}) {
                   <a href="#">Редактировать задачу</a>
                 </button>
                 <button className="btn-browse__delete _btn-bor _hover03">
-                <a onClick={() => {
-                  deleteTask(id);
-                }}>
-                  {/* // <a onClick={deleteTask({id})}> */}
-                    Удалить задачу</a>
+                  <a
+                    onClick={() => {
+                      deleteTask(id);
+                      navigate(AppRoutes.HOME);
+                    }}
+                  >
+                    {/* <a onClick={deleteTask({id})}> */}
+                    Удалить задачу
+                  </a>
                 </button>
               </div>
               <button className="btn-browse__close _btn-bg _hover01">
