@@ -4,6 +4,5 @@ import PopBrowse from "../../components/PopBrowse/PopBrowse";
 export default function CardPage() {
   const { id } = useParams();
 
-  // return <PopBrowse taskId={id} />;
   return <PopBrowse id={id} />;
 }

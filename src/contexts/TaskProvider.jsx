@@ -5,12 +5,12 @@ import { AppRoutes } from "../lib/AppRoutes";
 export const TaskContext = createContext(null);
 
 export function TaskProvider({ children }) {
-  const [task, setTask] = useState(JSON.parse(localStorage.getItem("task")));
+  const [task, setTask] = useState(null);
   const navigate = useNavigate();
 
-  function toTask({data}) {
+  function toTask(data) {
     setTask(data.tasks);
-    navigate(AppRoutes.MAIN);
+    navigate(AppRoutes.HOME);
   }
 
   return (

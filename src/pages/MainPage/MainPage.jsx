@@ -8,7 +8,7 @@ import { Outlet } from "react-router-dom";
 import { getTasks } from "../../Api";
 import gif from "../../assets/gif.gif";
 import useUser from "../../hooks/UseUser";
-// import useTask from "../../hooks/UseTask";
+import useTask from "../../hooks/UseTask";
 
 export default function MainPage() {
   const [cards, setCards] = useState(null);
@@ -28,11 +28,11 @@ export default function MainPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   const { user } = useUser();
-  // const { toTask } = useTask();
+  const { toTask } = useTask();
 
   useEffect(() => {
     getTasks({ user }).then((data) => {
-      // toTask(data);
+      toTask(data);
       console.log(data.tasks);
       setCards(data.tasks);
       setIsLoading(false);
