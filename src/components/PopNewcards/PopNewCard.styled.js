@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { hover01 } from "../Common/Common.styled";
 
 export const PopPopNewCard = styled.div`
-  display: none;
+  display: block;
   width: 100%;
   min-width: 375px;
   height: 100%;
@@ -111,6 +111,10 @@ export const FormNewArea = styled.textarea`
   font-size: 14px;
   line-height: 1;
   letter-spacing: -0.14px;
+
+  max-width: 370px;
+  margin-top: 14px;
+  height: 200px;
 
   &:-moz-placeholder {
     font-weight: 400;

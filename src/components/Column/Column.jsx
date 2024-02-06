@@ -12,7 +12,7 @@ export default function Column({ tasks, title }) {
           {tasks.map((task) => (
             <Card
               key={task._id}
-              id={task.id}
+              id={task._id}
               title={task.title}
               date={task.date}
               topic={task.topic}

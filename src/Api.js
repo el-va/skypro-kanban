@@ -1,21 +1,11 @@
-// const token = "ksdfsksdfjfsdjk";
-
 export let token;
-// export const setToken = (newtoken) => {
-//   token = newtoken;
-// };
-
-// export let user;
-// export const setUser = (newUser) => {
-//   user = newUser;
-// };
 
 const API_URL_TASK = "https://wedev-api.sky.pro/api/kanban";
 const API_URL_USER = "https://wedev-api.sky.pro/api/user";
 
-export async function getTasks() {
-  const userData = JSON.parse(localStorage.getItem("user"));
-  token = userData.token;
+export async function getTasks({ user }) {
+  // const userData = JSON.parse(localStorage.getItem("user"));
+  token = user.token;
 
   // return fetch(API_URL, {
   // method: "GET",
@@ -40,10 +30,10 @@ export async function postTask({ text }) {
       text,
     }),
   });
-    if (response.status === 400) {
-      alert("Ошибка загрузки")
-      throw new Error("Ошибка загрузки");
-    }
+  if (response.status === 400) {
+    alert("Ошибка загрузки");
+    throw new Error("Ошибка загрузки");
+  }
   const data = await response.json();
   return data;
 }
@@ -67,26 +57,15 @@ export async function loginUser({ login, password }) {
       password,
     }),
   });
-  // .then((response) => {
   if (response.status === 400) {
     alert("Введены неверные логин или пароль");
     throw new Error("Введены неверные логин или пароль");
   }
-  // return response.json();
-  // }
-  // .catch(err => {
-  //   console.log(err.response.data);
-  //   if (response.status === 400) {
-  //     alert('Введены неверные логин или пароль')
-  //     throw new Error('Введены неверные логин или пароль');
-  //   }
-  // });
   const data = await response.json();
   return data;
 }
 
 export async function regUser({ login, name, password }) {
-  //   const response = await fetch(API_URL_USER, {
   const response = await fetch(API_URL_USER, {
     method: "POST",
     body: JSON.stringify({
@@ -98,10 +77,39 @@ export async function regUser({ login, name, password }) {
       Authorization: `Bearer ${token}`,
     },
   });
-    if (response.status === 400) {
-      alert("Пользователь с таким логином уже существует");
-      throw new Error("Пользователь с таким логином уже существует");
-    }
+  if (response.status === 400) {
+    alert("Пользователь с таким логином уже существует");
+    throw new Error("Пользователь с таким логином уже существует");
+  }
+  const data = await response.json();
+  return data;
+}
+
+export async function addTask({ cardData }) {
+  const response = await fetch(API_URL_TASK, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    method: "POST",
+    body: JSON.stringify({
+      title: cardData.title,
+      topic: cardData.topic,
+      description: cardData.description,
+      date: cardData.date,
+    }),
+  });
+  const data = await response.json();
+  return data;
+}
+
+export async function deleteTask(id) {
+
+  const response = await fetch(API_URL_TASK + "/" + id, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
   const data = await response.json();
   return data;
 }

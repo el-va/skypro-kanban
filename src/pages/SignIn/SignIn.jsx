@@ -1,13 +1,23 @@
 import { Link } from "react-router-dom";
-import { AppRoutes } from "../../lib/Approutes";
+import { AppRoutes } from "../../lib/AppRoutes";
 import { useState } from "react";
+import { loginUser } from "../../Api";
+import useUser from "../../hooks/UseUser";
+// import "../signin.css";
 
-export default function SignIn({ setAuth }) {
-  
+export default function SignIn() {
+  const { login } = useUser();
+
   const [loginData, setLoginData] = useState({
     login: "",
     password: "",
   });
+
+  function setAuth(loginData) {
+    loginUser(loginData).then((data) => {
+      login(data.user);
+    });
+  }
 
   function onLoginChange(event) {
     setLoginData({
