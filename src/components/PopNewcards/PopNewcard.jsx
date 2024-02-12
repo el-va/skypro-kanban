@@ -1,20 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import Calendar from "../Calendar/Calendar";
-import {
-  // CategoriesP,
-  // CategoriesTheme,
-  // CategoriesThemeP,
-  // CategoriesThemes,
-  // PopNewCardCalendar,
-  SubttlLabel,
-} from "../Common/Common.styled";
+import { SubttlLabel } from "../Common/Common.styled";
 import {
   FormNewArea,
   FormNewBlock,
-  // FormNewCreate,
   FormNewInput,
   PopNewCardBlock,
-  // PopNewCardCategories,
   PopNewCardClose,
   PopNewCardContainer,
   PopNewCardContent,
@@ -26,6 +17,7 @@ import {
 import { AppRoutes } from "../../lib/AppRoutes";
 import { useState } from "react";
 import { addTask } from "../../Api";
+import useTask from "../../hooks/UseTask";
 
 export default function PopNewcard() {
   const [selected, setSelected] = useState(null);
@@ -38,19 +30,21 @@ export default function PopNewcard() {
 
   const navigate = useNavigate();
 
+  const { setTaskData } = useTask();
+
   function onBtnSubmit() {
     const cardData = {
       ...newCard,
       data: selected,
     };
-    console.log(cardData);
-    addTask({cardData});
-    navigate(AppRoutes.HOME);
+    // console.log(cardData);
+    // addTask({ cardData });
+    // navigate(AppRoutes.HOME);
 
-    // addTask(cardData).then((data) => {
-    //   setNewCard(data);
-    //   navigate(AppRoutes.HOME);
-    // });
+    addTask(cardData).then((data) => {
+      setTaskData(data.tasks);
+      navigate(AppRoutes.HOME);
+    });
   }
 
   return (
@@ -96,33 +90,6 @@ export default function PopNewcard() {
               </PopNewCardForm>
               <Calendar selected={selected} setSelected={setSelected} />
             </PopNewCardWrap>
-            {/* <div className="pop-new-card__categories categories">
-              <CategoriesP>Категория</CategoriesP>
-              <CategoriesThemes> */}
-            {/* <CategoriesThemes>
-                <CategoriesTheme $themeColor="orange">
-                  <CategoriesThemeP>Web Design</CategoriesThemeP>
-                </CategoriesTheme>
-                <CategoriesTheme $themeColor="green">
-                  <CategoriesThemeP>Research</CategoriesThemeP>
-                </CategoriesTheme>
-                <CategoriesTheme $themeColor="purple">
-                  <CategoriesThemeP>Copywriting</CategoriesThemeP>
-                </CategoriesTheme>
-              </CategoriesThemes> */}
-            {/* 
-                <div className="categories__theme _orange _active-category">
-                  <p className="_orange">Web Design</p>
-                </div>
-                <div className="categories__theme _green">
-                  <p className="_green">Research</p>
-                </div>
-                <div className="categories__theme _purple">
-                  <p className="_purple">Copywriting</p>
-                </div>
-              </CategoriesThemes>
-            </div> */}
-
             <div className="prod_checbox">
               <div className="radio-toolbar">
                 <input

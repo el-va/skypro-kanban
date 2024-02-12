@@ -2,24 +2,18 @@ import { useState } from "react";
 import {
   HeaderBlock,
   HeaderButtonMainNew,
-  // HeaderLogo,
-  // HeaderLogoImg,
+  HeaderButtonMainNewLink,
+  HeaderExitBtn,
+  HeaderExitBtnLink,
   HeaderNav,
-  // HeaderPopUserSet,
-  // HeaderPopUserSetButton,
-  // HeaderPopUserSetButtonA,
   HeaderPopUserSetMail,
   HeaderPopUserSetName,
-  // HeaderPopUserSetTheme,
   HeaderPopUserSetThemeInput,
   HeaderPopUserSetThemeP,
-  // HeaderUserA,
   StyledHeader,
 } from "./Header.styled";
 import { ContainerContainer } from "../Common/Common.styled";
 import { AppRoutes } from "../../lib/AppRoutes";
-import { Link } from "react-router-dom";
-// import PopExit from "../PopExit/PopExit";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,8 +37,9 @@ export default function Header() {
           </div>
           <HeaderNav>
             <HeaderButtonMainNew id="btnMainNew">
-              <Link to={AppRoutes.ADD_CARD}>Создать новую задачу</Link>
-              {/* <a onClick={addCards}>Создать новую задачу</a> */}
+              <HeaderButtonMainNewLink to={AppRoutes.ADD_CARD}>
+                Создать новую задачу
+              </HeaderButtonMainNewLink>
             </HeaderButtonMainNew>
             <a
               onClick={toggleDropdown}
@@ -58,7 +53,6 @@ export default function Header() {
                 className="header__pop-user-set pop-user-set"
                 id="user-set-target"
               >
-                {/* <!-- <a href=""/a> --> */}
                 <HeaderPopUserSetName>Ivan Ivanov</HeaderPopUserSetName>
                 <HeaderPopUserSetMail>
                   ivan.ivanov@gmail.com
@@ -67,15 +61,16 @@ export default function Header() {
                   <HeaderPopUserSetThemeP>Темная тема</HeaderPopUserSetThemeP>
                   <HeaderPopUserSetThemeInput
                     type="checkbox"
-                    className="checkbox"
+                    // className="checkbox"
                     name="checkbox"
                   />
                 </div>
-                <button type="button" className="_hover03">
-                  {/* <a href="#popExit">Выйти</a> */}
+                <HeaderExitBtn>
                   {/* <a onClick={PopExit}>Выйти</a> */}
-                  <Link to={AppRoutes.EXIT}>Выйти</Link>
-                </button>
+                  <HeaderExitBtnLink to={AppRoutes.EXIT}>
+                    Выйти
+                  </HeaderExitBtnLink>
+                </HeaderExitBtn>
               </div>
             )}
           </HeaderNav>

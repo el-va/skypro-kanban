@@ -12,7 +12,7 @@ import {
   CardsCard,
   ThemeP,
 } from "./Card.styled";
-import { AppRoutes } from "../../lib/AppRoutes";
+// import { AppRoutes } from "../../lib/AppRoutes";
 
 export default function Card({ color, topic, title, date, id }) {
   return (
@@ -25,14 +25,16 @@ export default function Card({ color, topic, title, date, id }) {
           {/* <div className={`card__theme ${color}`}>
             <p className={color}>{theme}</p>
           </div> */}
-          <Link to={AppRoutes.CARD} target="_self">
-          {/* <a href="#popBrowse" target="_self"> */}
+          <Link to={`/EditCard/${id}`} target="_self">
+            {/* <a href="#popBrowse" target="_self"> */}
             <CardBtnDiv>
+            {/* <div className="card__btn"> */}
               <div></div>
               <div></div>
               <div></div>
+            {/* </div> */}
             </CardBtnDiv>
-          {/* </a> */}
+            {/* </a> */}
           </Link>
         </CardGroup>
         <CardContent>

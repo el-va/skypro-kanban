@@ -1,10 +1,21 @@
-import { Link } from "react-router-dom";
 import { AppRoutes } from "../../lib/AppRoutes";
 import { useState } from "react";
-// import "../signup.css";
+import {
+  ContainerSign,
+  ModalBlockSign,
+  ModalBtnEnterSign,
+  ModalFormGroupSign,
+  ModalFormGroupSignLink,
+  ModalFormGroupSignP,
+  ModalFormSign,
+  ModalInputSign,
+  ModalInputSignPass,
+  ModalSign,
+  ModalTtlSign,
+  WrapperSign,
+} from "../SignIn/Sign.styled";
 
 export default function SignUp({ setReg }) {
-
   const [regData, setRegData] = useState({
     login: "",
     name: "",
@@ -33,16 +44,13 @@ export default function SignUp({ setReg }) {
   }
 
   return (
-    <div className="wrapper">
-      <div className="container-signup">
-        <div className="modal">
-          <div className="modal__block">
-            <div className="modal__ttl">
-              <h2>Регистрация</h2>
-            </div>
-            <form className="modal__form-login" id="formLogUp" action="#">
-              <input
-                className="modal__input first-name"
+    <WrapperSign>
+      <ContainerSign>
+        <ModalSign>
+          <ModalBlockSign>
+            <ModalTtlSign>Регистрация</ModalTtlSign>
+            <ModalFormSign id="formLogUp" action="#">
+              <ModalInputSign
                 type="text"
                 name="first-name"
                 id="first-name"
@@ -50,8 +58,7 @@ export default function SignUp({ setReg }) {
                 value={regData.name}
                 onChange={onNameChange}
               />
-              <input
-                className="modal__input login"
+              <ModalInputSign
                 type="text"
                 name="login"
                 id="loginReg"
@@ -59,8 +66,7 @@ export default function SignUp({ setReg }) {
                 value={regData.login}
                 onChange={onLoginChange}
               />
-              <input
-                className="modal__input password-first"
+              <ModalInputSignPass
                 type="password"
                 name="password"
                 id="passwordFirst"
@@ -68,29 +74,27 @@ export default function SignUp({ setReg }) {
                 value={regData.password}
                 onChange={onPasswordChange}
               />
-              <button
-                className="modal__btn-signup-ent _hover01"
+              <ModalBtnEnterSign
                 id="SignUpEnter"
                 onClick={(event) => {
                   event.preventDefault();
                   setReg(regData);
                 }}
               >
-				Зарегистрироваться
-                {/* <a href="../main.html">Зарегистрироваться</a> */}
-                {/* <Link to={AppRoutes.HOME}>Зарегистрироваться</Link> */}
-              </button>
-              <div className="modal__form-group">
-                <p>
+                Зарегистрироваться
+              </ModalBtnEnterSign>
+              <ModalFormGroupSign>
+                <ModalFormGroupSignP>
                   Уже есть аккаунт?
-                  {/* <a href="signin.html">Войдите здесь</a> */}
-                  <Link to={AppRoutes.SIGNIN}>Войдите здесь</Link>
-                </p>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+                  <ModalFormGroupSignLink to={AppRoutes.SIGNIN}>
+                    Войдите здесь
+                  </ModalFormGroupSignLink>
+                </ModalFormGroupSignP>
+              </ModalFormGroupSign>
+            </ModalFormSign>
+          </ModalBlockSign>
+        </ModalSign>
+      </ContainerSign>
+    </WrapperSign>
   );
 }

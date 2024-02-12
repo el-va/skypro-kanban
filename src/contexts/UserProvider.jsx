@@ -25,14 +25,4 @@ export function UserProvider({ children }) {
       {children}
     </UserContext.Provider>
   );
-
-  
-
-  // const user = useContext(UserContext);
-
-  // if (!user) {
-  //   throw new Error("Данные пользователя не были найдены");
-  // }
-
-  // return user;
 }

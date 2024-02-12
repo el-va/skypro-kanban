@@ -2,12 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import {
   CategoriesP,
   CategoriesTheme,
-  // CategoriesThemeDown,
   CategoriesThemeP,
-  // PopNewCardCalendar,
   StatusP,
-  // StatusTheme,
-  // StatusThemeP,
   SubttlLabel,
 } from "../Common/Common.styled";
 import PopExit from "../PopExit/PopExit";
@@ -15,19 +11,10 @@ import {
   FormBrowseFormArea,
   FormBrowseFormBlock,
   PopBrowseBlock,
-  // PopBrowseBtnBg,
-  // PopBrowseBtnBgA,
-  // PopBrowseBtnBor,
-  // PopBrowseBtnBorA,
-  // PopBrowseBtnBrowse,
-  // PopBrowseBtnEditHide,
-  // PopBrowseBtnGroup,
   PopBrowseContainer,
-  // PopBrowseContent,
   PopBrowseForm,
   PopBrowseTopBlock,
   PopBrowseTtl,
-  // PopBrowseWrap,
   PopPopBrowse,
   Status,
   StatusThemeHide,
@@ -36,10 +23,14 @@ import {
 import Calendar from "../Calendar/Calendar";
 import { deleteTask } from "../../Api";
 import { AppRoutes } from "../../lib/AppRoutes";
-
+import useTask from "../../hooks/UseTask";
 
 export default function PopBrowse({ id }) {
-const navigate = useNavigate();
+  const navigate = useNavigate();
+
+  const { tasks, setTaskData } = useTask();
+  const taskId = tasks?.find((taskItem) => taskItem._id === id);
+  console.log(taskId);
 
   return (
     <PopPopBrowse id="popBrowse">
@@ -47,7 +38,7 @@ const navigate = useNavigate();
         <PopBrowseBlock>
           <div className="pop-browse__content">
             <PopBrowseTopBlock>
-              <PopBrowseTtl>Название задачи</PopBrowseTtl>
+              <PopBrowseTtl>{taskId.title}</PopBrowseTtl>
               <div className="categories__theme theme-top _orange _active-category">
                 <p className="_orange">Web Design</p>
               </div>
@@ -59,7 +50,7 @@ const navigate = useNavigate();
                   <p>Без статуса</p>
                 </StatusThemeHide>
                 <div className="status__theme _gray">
-                  <p className="_gray">Нужно сделать</p>
+                  <p className="_gray">{taskId.status}</p>
                 </div>
                 <StatusThemeHide>
                   <p>В работе</p>
@@ -82,7 +73,7 @@ const navigate = useNavigate();
                     name="text"
                     id="textArea01"
                     readOnly
-                    placeholder="Введите описание задачи..."
+                    placeholder={taskId.description}
                   ></FormBrowseFormArea>
                 </FormBrowseFormBlock>
               </PopBrowseForm>
@@ -91,20 +82,22 @@ const navigate = useNavigate();
             <div className="theme-down__categories theme-down">
               <CategoriesP>Категория</CategoriesP>
               <CategoriesTheme $themeColor="orange">
-                <CategoriesThemeP>Web Design</CategoriesThemeP>
+                <CategoriesThemeP>{taskId.topic}</CategoriesThemeP>
               </CategoriesTheme>
             </div>
 
             <div className="pop-browse__btn-browse ">
               <div className="btn-group">
                 <button className="btn-browse__edit _btn-bor _hover03">
-                  <a href="#">Редактировать задачу</a>
+                  <Link to={`/EditCard/${id}`}>Редактировать задачу</Link>
                 </button>
                 <button className="btn-browse__delete _btn-bor _hover03">
                   <a
                     onClick={() => {
-                      deleteTask(id);
-                      navigate(AppRoutes.HOME);
+                      deleteTask(id).then((data) => {
+                        setTaskData(data.tasks);
+                        navigate(AppRoutes.HOME);
+                      });
                     }}
                   >
                     {/* <a onClick={deleteTask({id})}> */}
@@ -113,7 +106,6 @@ const navigate = useNavigate();
                 </button>
               </div>
               <button className="btn-browse__close _btn-bg _hover01">
-                {/* <a href="#">Закрыть</a> */}
                 <Link to={AppRoutes.HOME}>Закрыть</Link>
               </button>
             </div>
@@ -142,21 +134,3 @@ const navigate = useNavigate();
     </PopPopBrowse>
   );
 }
-
-//         <PopBrowseBtnBrowse>
-//           <PopBrowseBtnGroup>
-//             {/* <button className="btn-browse__edit _btn-bor _hover03"> */}
-//             <PopBrowseBtnBor>
-//               <PopBrowseBtnBorA href="#">
-//                 Редактировать задачу
-//               </PopBrowseBtnBorA>
-//             </PopBrowseBtnBor>
-//             {/* <button className="btn-browse__delete _btn-bor _hover03"> */}
-//             <PopBrowseBtnBor>
-//               <PopBrowseBtnBorA href="#">Удалить задачу</PopBrowseBtnBorA>
-//             </PopBrowseBtnBor>
-//           </PopBrowseBtnGroup>
-//           <PopBrowseBtnBg>
-//             <PopBrowseBtnBgA href="#">Закрыть</PopBrowseBtnBgA>
-//           </PopBrowseBtnBg>
-//         </PopBrowseBtnBrowse>

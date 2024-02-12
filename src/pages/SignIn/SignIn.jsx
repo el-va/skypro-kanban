@@ -1,9 +1,21 @@
-import { Link } from "react-router-dom";
 import { AppRoutes } from "../../lib/AppRoutes";
 import { useState } from "react";
 import { loginUser } from "../../Api";
 import useUser from "../../hooks/UseUser";
-// import "../signin.css";
+// import "./signin.css";
+import {
+  ContainerSign,
+  ModalBlockSign,
+  ModalBtnEnterSign,
+  ModalFormGroupSign,
+  ModalFormGroupSignLink,
+  ModalFormGroupSignP,
+  ModalFormSign,
+  ModalInputSign,
+  ModalSign,
+  ModalTtlSign,
+  WrapperSign,
+} from "./Sign.styled";
 
 export default function SignIn() {
   const { login } = useUser();
@@ -34,16 +46,13 @@ export default function SignIn() {
   }
 
   return (
-    <div className="wrapper">
-      <div className="container-signin">
-        <div className="modal">
-          <div className="modal__block">
-            <div className="modal__ttl">
-              <h2>Вход</h2>
-            </div>
-            <form className="modal__form-login" id="formLogIn" action="#">
-              <input
-                className="modal__input"
+    <WrapperSign>
+      <ContainerSign>
+        <ModalSign>
+          <ModalBlockSign>
+            <ModalTtlSign>Вход</ModalTtlSign>
+            <ModalFormSign id="formLogIn" action="#">
+              <ModalInputSign
                 type="text"
                 name="login"
                 id="formlogin"
@@ -52,8 +61,7 @@ export default function SignIn() {
                 onChange={onLoginChange}
               />
 
-              <input
-                className="modal__input"
+              <ModalInputSign
                 type="password"
                 name="password"
                 id="formpassword"
@@ -61,8 +69,7 @@ export default function SignIn() {
                 value={loginData.password}
                 onChange={onPasswordChange}
               />
-              <button
-                className="modal__btn-enter _hover01"
+              <ModalBtnEnterSign
                 id="btnEnter"
                 onClick={(event) => {
                   event.preventDefault();
@@ -70,18 +77,19 @@ export default function SignIn() {
                 }}
               >
                 Войти
-                {/* <a href="../main.html">Войти</a> */}
-              </button>
-              {/* <Link to={AppRoutes.HOME}>Войти</Link> */}
-              <div className="modal__form-group">
-                <p>Нужно зарегистрироваться?</p>
-                {/* <a href="signup.html">Регистрируйтесь здесь</a> */}
-                <Link to={AppRoutes.SIGNUP}>Регистрируйтесь здесь</Link>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+              </ModalBtnEnterSign>
+              <ModalFormGroupSign>
+                <ModalFormGroupSignP>
+                  Нужно зарегистрироваться?
+                </ModalFormGroupSignP>
+                <ModalFormGroupSignLink to={AppRoutes.SIGNUP}>
+                  Регистрируйтесь здесь
+                </ModalFormGroupSignLink>
+              </ModalFormGroupSign>
+            </ModalFormSign>
+          </ModalBlockSign>
+        </ModalSign>
+      </ContainerSign>
+    </WrapperSign>
   );
 }

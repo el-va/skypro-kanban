@@ -1119,7 +1119,7 @@ body {
   }
 }
 
- @media screen and (max-width: 495px) {
+@media screen and (max-width: 495px) {
   .container {
     width: 100%;
     padding: 0 16px;
@@ -1232,7 +1232,7 @@ body {
 }
 
 
- #root {
+#root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -1279,29 +1279,31 @@ body {
 }
 
 
-.prod_checbox strong {font-size: 14px;
-    color: #333;
-    display: inline-block;
-    margin-right: 10px;
-    letter-spacing: 0.5px;}
+.prod_checbox strong {
+  font-size: 14px;
+  color: #333;
+  display: inline-block;
+  margin-right: 10px;
+  letter-spacing: 0.5px;
+}
 
 .radio-toolbar input[type="radio"] {
-    display: none;
+  display: none;
 }
 
 .radio-toolbar label {
-    display: inline-block;
-    padding: 2px 9px;
-    cursor: pointer;
-    border: 1px solid #DAD0FF;
+  display: inline-block;
+  padding: 2px 9px;
+  cursor: pointer;
+  border: 1px solid #DAD0FF;
 }
 
 .radio-toolbar input[type="radio"]:checked+label {
-    background-color: #d0ffb7;
-    border: 1px solid #1CA92E;
+  background-color: #d0ffb7;
+  border: 1px solid #1CA92E;
 }
 
 .radio-toolbar label:hover {
-    background-color: #d0ffb7;
-    border: 1px solid #1CA92E;
+  background-color: #d0ffb7;
+  border: 1px solid #1CA92E;
 }
