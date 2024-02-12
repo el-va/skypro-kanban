@@ -51,7 +51,7 @@ export default function EditCard({ id }) {
 
   // const [selected, setSelected] = useState(null);
 
-  // const [editingCard, setEditingCard] = useState({
+  // const [editingTask, setEditingTask] = useState({
   //   title: taskId.title,
   //   topic: taskId.topic,
   //   status: taskId.status,
@@ -62,13 +62,13 @@ export default function EditCard({ id }) {
   // const navigate = useNavigate();
 
   // function onBtnEdit() {
-  //   const cardData = {
-  //     ...editingCard,
+  //   const cardTaskData = {
+  //     ...editingTask,
   //     data: selected,
   //   };
 
   //   EditTask(cardData).then((data) => {
-  //     setEditingCard(data);
+  //     setEditingTask(data);
   //     navigate(AppRoutes.HOME);
   //   });
   // }
