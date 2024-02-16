@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { hover01 } from "../Common/Common.styled";
+import { hover01 } from "../../components/Common/Common.styled";
 
 export const PopPopNewCard = styled.div`
   display: block;
@@ -11,10 +11,10 @@ export const PopPopNewCard = styled.div`
   top: 0;
   left: 0;
   z-index: 6;
-`
+`;
 export const PopNewCardCategories = styled(PopPopNewCard)`
   margin-bottom: 20px;
-`
+`;
 export const PopNewCardContainer = styled.div`
   width: 100%;
   height: 100%;
@@ -25,55 +25,55 @@ export const PopNewCardContainer = styled.div`
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.4);
-`
+`;
 export const PopNewCardBlock = styled.div`
   display: block;
   margin: 0 auto;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   max-width: 630px;
   width: 100%;
   padding: 40px 30px 48px;
   border-radius: 10px;
-  border: 0.7px solid #D4DBE5;
+  border: 0.7px solid #d4dbe5;
   position: relative;
-`
+`;
 export const PopNewCardContent = styled.div`
   display: block;
   text-align: left;
-`
+`;
 export const PopNewCardTtl = styled.h3`
   color: #000;
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
   margin-bottom: 20px;
-`
+`;
 export const PopNewCardClose = styled.div`
   position: absolute;
   top: 20px;
   right: 30px;
-  color: #94A6BE;
+  color: #94a6be;
   cursor: pointer;
 
   &:hover {
     color: #000000;
   }
-`
+`;
 export const PopNewCardWrap = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-`
+`;
 export const PopNewCardForm = styled.form`
   max-width: 370px;
   width: 100%;
   display: block;
   margin-bottom: 20px;
-`
+`;
 export const FormNewBlock = styled.div`
   display: flex;
   flex-direction: column;
-`
+`;
 export const FormNewInput = styled.input`
   width: 100%;
   outline: none;
@@ -87,20 +87,20 @@ export const FormNewInput = styled.input`
 
   &:-moz-placeholder {
     font-weight: 400;
-  font-size: 14px;
-  line-height: 1px;
-  color: #94A6BE;
-  letter-spacing: -0.14px;
+    font-size: 14px;
+    line-height: 1px;
+    color: #94a6be;
+    letter-spacing: -0.14px;
   }
 
   &::placeholder {
     font-weight: 400;
-  font-size: 14px;
-  line-height: 1px;
-  color: #94A6BE;
-  letter-spacing: -0.14px;
+    font-size: 14px;
+    line-height: 1px;
+    color: #94a6be;
+    letter-spacing: -0.14px;
   }
-`
+`;
 export const FormNewArea = styled.textarea`
   width: 100%;
   outline: none;
@@ -118,24 +118,74 @@ export const FormNewArea = styled.textarea`
 
   &:-moz-placeholder {
     font-weight: 400;
-  font-size: 14px;
-  line-height: 1px;
-  color: #94A6BE;
-  letter-spacing: -0.14px;
+    font-size: 14px;
+    line-height: 1px;
+    color: #94a6be;
+    letter-spacing: -0.14px;
   }
 
   &::placeholder {
     font-weight: 400;
-  font-size: 14px;
-  line-height: 1px;
-  color: #94A6BE;
-  letter-spacing: -0.14px;
+    font-size: 14px;
+    line-height: 1px;
+    color: #94a6be;
+    letter-spacing: -0.14px;
   }
-`
+`;
 
 export const FormNewCreate = styled.button`
-    width: 100%;
-    height: 40px;
+  width: 100%;
+  height: 40px;
 
-    ${hover01}
-`
+  ${hover01}
+`;
+
+export const Status = styled.div`
+  margin-bottom: 11px;
+`;
+
+export const StatusP = styled.p`
+  margin-bottom: 14px;
+`;
+
+export const StatusThemes = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+`;
+
+export const StatusTheme = styled.div`
+  display: inline-block;
+  border-radius: 24px;
+  border: 0.7px solid rgba(148, 166, 190, 0.4);
+  color: #94a6be;
+  padding: 5px 14px 7px;
+  margin-right: 7px;
+  margin-bottom: 7px;
+  transition: background-color 0.3s;
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  input[type="radio"]:checked + label {
+    opacity: 1 !important;
+    color: #fff;
+    background-color: #94a6be;
+  }
+
+  &:hover {
+    background-color: #94a6be;
+    color: white;
+  }
+
+  label {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    user-select: none;
+    letter-spacing: -0.14px;
+  }
+`;

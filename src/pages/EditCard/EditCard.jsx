@@ -5,7 +5,6 @@ import { AppRoutes } from "../../lib/AppRoutes";
 import {
   FormNewArea,
   FormNewBlock,
-  FormNewInput,
   PopNewCardBlock,
   PopNewCardClose,
   PopNewCardContainer,
@@ -15,91 +14,166 @@ import {
   PopNewCardWrap,
   PopPopNewCard,
 } from "../../components/PopNewcards/PopNewCard.styled";
-import { SubttlLabel } from "../../components/Common/Common.styled";
 import Calendar from "../../components/Calendar/Calendar";
+import { Status, StatusP, StatusTheme, StatusThemes } from "./EditCard.styled";
+import { SubttlLabel } from "../../components/Common/Common.styled";
+import useTask from "../../hooks/UseTask";
 
-export default function EditCard({ id }) {
+// export default function EditCard({ id }) {
+//   const [selected, setSelected] = useState(null);
+
+//   const [editingCard, setEditingCard] = useState({
+//     title: "",
+//     topic: "",
+//     description: "",
+//   });
+
+//   const navigate = useNavigate();
+
+//   function onBtnEdit() {
+//     const cardData = {
+//       ...editingCard,
+//       data: selected,
+//     };
+//     console.log(cardData);
+//     EditTask({ cardData });
+//     navigate(AppRoutes.HOME);
+
+//     EditTask(cardData).then((data) => {
+//       setEditingCard(data);
+//       navigate(AppRoutes.HOME);
+//     });
+//   }
+
+  // попыталась сделать редактирование, изменив код выше, но не сработало:
+
+  export default function EditCard({ id }) {
+
+  const { tasks } = useTask();
+  const taskId = tasks?.find((taskItem) => taskItem._id === id);
+
   const [selected, setSelected] = useState(null);
 
-  const [editingCard, setEditingCard] = useState({
-    title: "",
-    topic: "",
-    description: "",
+  const [editingTask, setEditingTask] = useState({
+    title: taskId.title,
+    topic: taskId.topic,
+    status: taskId.status,
+    description: taskId.description,
+    date: taskId.date,
   });
 
   const navigate = useNavigate();
 
   function onBtnEdit() {
-    const cardData = {
-      ...editingCard,
+    const cardTaskData = {
+      ...editingTask,
       data: selected,
     };
-    // console.log(cardData);
-    // EditTask({ cardData });
-    // navigate(AppRoutes.HOME);
 
-    EditTask(cardData).then((data) => {
-      setEditingCard(data);
+    EditTask(cardTaskData).then((data) => {
+      setEditingTask(data);
       navigate(AppRoutes.HOME);
     });
   }
-
-  // попыталась сделать редактирование, изменив код выше, но не сработало:
-
-  // const { tasks } = useTask();
-  // const taskId = tasks?.find((taskItem) => taskItem._id === id);
-
-  // const [selected, setSelected] = useState(null);
-
-  // const [editingTask, setEditingTask] = useState({
-  //   title: taskId.title,
-  //   topic: taskId.topic,
-  //   status: taskId.status,
-  //   description: taskId.description,
-  //   date: taskId.date,
-  // });
-
-  // const navigate = useNavigate();
-
-  // function onBtnEdit() {
-  //   const cardTaskData = {
-  //     ...editingTask,
-  //     data: selected,
-  //   };
-
-  //   EditTask(cardData).then((data) => {
-  //     setEditingTask(data);
-  //     navigate(AppRoutes.HOME);
-  //   });
-  // }
 
   return (
     <PopPopNewCard id="popNewCard">
       <PopNewCardContainer>
         <PopNewCardBlock>
           <PopNewCardContent>
-            <PopNewCardTtl>Редактирование задачи</PopNewCardTtl>
-            <PopNewCardClose href="#">
+            {/* <PopNewCardTtl>{taskId.title}</PopNewCardTtl> */}
+            <PopNewCardTtl>TaskId.title(после ред)</PopNewCardTtl>
+
+            <PopNewCardClose>
               <Link to={AppRoutes.HOME}>&#10006;</Link>
             </PopNewCardClose>
             <PopNewCardWrap>
               <PopNewCardForm id="formNewCard" action="#">
                 <FormNewBlock>
-                  <SubttlLabel htmlFor="formTitle">Название задачи</SubttlLabel>
-                  <FormNewInput
-                    type="text"
-                    name="name"
-                    id="formTitle"
-                    placeholder="Введите название задачи..."
-                    autoFocus
-                    value={editingCard.title}
-                    onChange={(event) =>
-                      setEditingCard({
-                        ...editingCard,
-                        title: event.target.value,
-                      })
-                    }
-                  />
+                  <Status>
+                    <StatusP className="subttl">Статус</StatusP>
+                    <StatusThemes>
+                      <StatusTheme>
+                        <input
+                          type="radio"
+                          id="radio1"
+                          name="radios"
+                          value="Web Design"
+                          onChange={(event) =>
+                            setEditingTask({
+                              ...editingTask,
+                              topic: event.target.value,
+                            })
+                          }
+                        />
+                        <label htmlFor="no-status">Без статуса</label>
+                      </StatusTheme>
+
+                      <StatusTheme>
+                        <input
+                          type="radio"
+                          id="radio2"
+                          name="radios"
+                          value="Web Design"
+                          onChange={(event) =>
+                            setEditingTask({
+                              ...editingTask,
+                              topic: event.target.value,
+                            })
+                          }
+                        />
+                        <label htmlFor="no-status">Нужно сделать</label>
+                      </StatusTheme>
+
+                      <StatusTheme>
+                        <input
+                          type="radio"
+                          id="radio3"
+                          name="radios"
+                          value="Web Design"
+                          onChange={(event) =>
+                            setEditingTask({
+                              ...editingTask,
+                              topic: event.target.value,
+                            })
+                          }
+                        />
+                        <label htmlFor="no-status">В работе</label>
+                      </StatusTheme>
+
+                      <StatusTheme>
+                        <input
+                          type="radio"
+                          id="radio4"
+                          name="radios"
+                          value="Web Design"
+                          onChange={(event) =>
+                            setEditingTask({
+                              ...editingTask,
+                              topic: event.target.value,
+                            })
+                          }
+                        />
+                        <label htmlFor="no-status">Тестирование</label>
+                      </StatusTheme>
+
+                      <StatusTheme>
+                        <input
+                          type="radio"
+                          id="radio5"
+                          name="radios"
+                          value="Web Design"
+                          onChange={(event) =>
+                            setEditingTask({
+                              ...editingTask,
+                              topic: event.target.value,
+                            })
+                          }
+                        />
+                        <label htmlFor="no-status">Готово</label>
+                      </StatusTheme>
+                    </StatusThemes>
+                  </Status>
                 </FormNewBlock>
                 <FormNewBlock>
                   <SubttlLabel htmlFor="textArea">Описание задачи</SubttlLabel>
@@ -107,10 +181,10 @@ export default function EditCard({ id }) {
                     name="text"
                     id="textArea"
                     placeholder="Введите описание задачи..."
-                    value={editingCard.description}
+                    value={editingTask.description}
                     onChange={(event) =>
-                      setEditingCard({
-                        ...editingCard,
+                      setEditingTask({
+                        ...editingTask,
                         description: event.target.value,
                       })
                     }
@@ -119,7 +193,7 @@ export default function EditCard({ id }) {
               </PopNewCardForm>
               <Calendar selected={selected} setSelected={setSelected} />
             </PopNewCardWrap>
-            <div className="prod_checbox">
+            {/* <div className="prod_checbox">
               <div className="radio-toolbar">
                 <input
                   type="radio"
@@ -163,7 +237,7 @@ export default function EditCard({ id }) {
                 />
                 <label htmlFor="radio3">Copywriting</label>
               </div>
-            </div>
+            </div> */}
 
             <div className="pop-browse__btn-edit">
               <div className="btn-group">

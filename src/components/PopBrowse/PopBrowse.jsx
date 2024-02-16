@@ -32,6 +32,21 @@ export default function PopBrowse({ id }) {
   const taskId = tasks?.find((taskItem) => taskItem._id === id);
   console.log(taskId);
 
+  let color;
+  switch (taskId.topic) {
+    case "Web Design":
+      color = "_orange";
+      break;
+    case "Research":
+      color = "_green";
+      break;
+    case "Copywriting":
+      color = "_purple";
+      break;
+    default:
+      color = "_gray";
+  }
+
   return (
     <PopPopBrowse id="popBrowse">
       <PopBrowseContainer>
@@ -39,9 +54,14 @@ export default function PopBrowse({ id }) {
           <div className="pop-browse__content">
             <PopBrowseTopBlock>
               <PopBrowseTtl>{taskId.title}</PopBrowseTtl>
-              <div className="categories__theme theme-top _orange _active-category">
-                <p className="_orange">Web Design</p>
-              </div>
+              {/* <div className="categories__theme theme-top _orange _active-category"> */}
+              <CategoriesTheme
+                $themeColor={color}
+                className="categories__theme theme-top _active-category"
+              >
+                {/* <p className="_orange">Web Design</p> */}
+                <CategoriesThemeP>{taskId.topic}</CategoriesThemeP>
+              </CategoriesTheme>
             </PopBrowseTopBlock>
             <Status>
               <StatusP>Статус</StatusP>

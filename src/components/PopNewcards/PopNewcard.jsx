@@ -2,6 +2,9 @@ import { Link, useNavigate } from "react-router-dom";
 import Calendar from "../Calendar/Calendar";
 import { SubttlLabel } from "../Common/Common.styled";
 import {
+  CategoriesContainer,
+  CategoriesP,
+  CategoriesTheme,
   FormNewArea,
   FormNewBlock,
   FormNewInput,
@@ -90,42 +93,51 @@ export default function PopNewcard() {
               </PopNewCardForm>
               <Calendar selected={selected} setSelected={setSelected} />
             </PopNewCardWrap>
-            <div className="prod_checbox">
-              <div className="radio-toolbar">
+            <CategoriesContainer className="pop-new-card__categories prod_checbox">
+              <CategoriesP className="subttl">Категория</CategoriesP>
+              <CategoriesTheme className="_orange">
                 <input
                   type="radio"
                   id="radio1"
                   name="radios"
+                  className="_orange"
                   value="Web Design"
-                  onChange={(event) =>
-                    setNewCard({ ...newCard, topic: event.target.value })
+                  checked={newCard.topic === "Web Design"}
+                  onChange={(e) =>
+                    setNewCard({ ...newCard, topic: e.target.value })
                   }
                 />
                 <label htmlFor="radio1">Web Design</label>
-
+              </CategoriesTheme>
+              <CategoriesTheme className="_green">
                 <input
                   type="radio"
                   id="radio2"
                   name="radios"
+                  className="_green"
                   value="Research"
-                  onChange={(event) =>
-                    setNewCard({ ...newCard, topic: event.target.value })
+                  checked={newCard.topic === "Research"}
+                  onChange={(e) =>
+                    setNewCard({ ...newCard, topic: e.target.value })
                   }
                 />
                 <label htmlFor="radio2">Research</label>
-
+              </CategoriesTheme>
+              <CategoriesTheme className="_purple">
                 <input
                   type="radio"
                   id="radio3"
                   name="radios"
+                  className="_purple"
                   value="Copywriting"
-                  onChange={(event) =>
-                    setNewCard({ ...newCard, topic: event.target.value })
+                  checked={newCard.topic === "Copywriting"}
+                  onChange={(e) =>
+                    setNewCard({ ...newCard, topic: e.target.value })
                   }
                 />
-                <label htmlFor="radio3">Copywriting</label>
-              </div>
-            </div>
+                <label htmlFor="radio">Copywriting</label>
+              </CategoriesTheme>
+            </CategoriesContainer>
 
             <button
               onClick={onBtnSubmit}

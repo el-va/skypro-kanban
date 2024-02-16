@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import {
-  CardBtnDiv,
+  // CardBtnDiv,
+  CardButton,
   CardContent,
   CardDate,
   CardDateP,
@@ -12,9 +13,25 @@ import {
   CardsCard,
   ThemeP,
 } from "./Card.styled";
-// import { AppRoutes } from "../../lib/AppRoutes";
+import { format } from "date-fns";
 
-export default function Card({ color, topic, title, date, id }) {
+export default function Card({ topic, title, date, id }) {
+
+  let color;
+  switch (topic) {
+    case "Web Design":
+      color = "_orange";
+      break;
+    case "Copywriting":
+      color = "_purple";
+      break;
+    case "Research":
+      color = "_green";
+      break;
+    default:
+      color = "_gray";
+  }
+
   return (
     <CardItem>
       <CardsCard>
@@ -22,18 +39,16 @@ export default function Card({ color, topic, title, date, id }) {
           <CardTheme $themeColor={color}>
             <ThemeP>{topic}</ThemeP>
           </CardTheme>
-          {/* <div className={`card__theme ${color}`}>
-            <p className={color}>{theme}</p>
+          {/* <div className={`card__theme ${color}`}> */}
+          {/* <p className={color}>{theme}</p>
           </div> */}
           <Link to={`/EditCard/${id}`} target="_self">
             {/* <a href="#popBrowse" target="_self"> */}
-            <CardBtnDiv>
-            {/* <div className="card__btn"> */}
+            <CardButton>
               <div></div>
               <div></div>
               <div></div>
-            {/* </div> */}
-            </CardBtnDiv>
+            </CardButton>
             {/* </a> */}
           </Link>
         </CardGroup>
@@ -72,7 +87,7 @@ export default function Card({ color, topic, title, date, id }) {
                 </clipPath>
               </defs>
             </CardDateSvg>
-            <CardDateP>{date}</CardDateP>
+            <CardDateP>{format(date, "dd.MM.yy")}</CardDateP>
           </CardDate>
         </CardContent>
       </CardsCard>
