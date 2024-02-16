@@ -1,5 +1,10 @@
 import Card from "../Card/Card";
-import { ColumnCards, ColumnTitle, ColumnTitleP, MainColumn } from "./Column.styled";
+import {
+  ColumnCards,
+  ColumnTitle,
+  ColumnTitleP,
+  MainColumn,
+} from "./Column.styled";
 
 export default function Column({ tasks, title }) {
   return (
@@ -12,12 +17,12 @@ export default function Column({ tasks, title }) {
           {tasks.map((task) => (
             <Card
               key={task._id}
-              id={task.id}
+              id={task._id}
               title={task.title}
               date={task.date}
               topic={task.topic}
               status={task.status}
-              color={task.color}    
+              color={task.color}
             />
           ))}
         </div>

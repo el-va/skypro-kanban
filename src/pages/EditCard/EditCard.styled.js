@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { hover01 } from "../Common/Common.styled";
+import { hover01 } from "../../components/Common/Common.styled";
 
 export const PopPopNewCard = styled.div`
   display: block;
@@ -140,45 +140,52 @@ export const FormNewCreate = styled.button`
   ${hover01}
 `;
 
-export const CategoriesContainer = styled.div`
-  margin-bottom: 20px;
+export const Status = styled.div`
+  margin-bottom: 11px;
 `;
-export const CategoriesP = styled.p`
+
+export const StatusP = styled.p`
   margin-bottom: 14px;
 `;
-export const CategoriesTheme = styled.div`
-  display: inline-block;
-  width: auto;
-  height: auto;
-  padding: 8px 20px;
-  border-radius: 24px;
-  margin-right: 7px;
-  opacity: 0.4;
 
-  label {
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 14px;
-    white-space: nowrap;
-  }
+export const StatusThemes = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+`;
+
+export const StatusTheme = styled.div`
+  display: inline-block;
+  border-radius: 24px;
+  border: 0.7px solid rgba(148, 166, 190, 0.4);
+  color: #94a6be;
+  padding: 5px 14px 7px;
+  margin-right: 7px;
+  margin-bottom: 7px;
+  transition: background-color 0.3s;
 
   input[type="radio"] {
     display: none;
   }
 
-  input[type="radio"]:checked + label:checked {
+  input[type="radio"]:checked + label {
     opacity: 1 !important;
-  }
-  label {
-    display: inline-block;
-    cursor: pointer;
+    color: #fff;
+    background-color: #94a6be;
   }
 
   &:hover {
-    opacity: 1 !important;
+    background-color: #94a6be;
+    color: white;
   }
 
-  .theme-top {
-    display: block;
+  label {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    user-select: none;
+    letter-spacing: -0.14px;
   }
 `;

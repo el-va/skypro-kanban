@@ -21,5 +21,5 @@ export const themeStyles = {
   },
   _hide: {
     display: "none",
-  }
+  },
 };

@@ -17,7 +17,7 @@ export const CardItem = styled.div`
 export const CardsCard = styled.div`
   width: 200px;
   height: 130px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@ export const CardsCard = styled.div`
   @media screen and (max-width: ${breakpoints.xl}px) {
     width: 200px;
     height: 130px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -36,7 +36,7 @@ export const CardsCard = styled.div`
     justify-content: stretch;
     padding: 15px 13px 19px;
   }
-`
+`;
 
 export const CardGroup = styled.div`
   width: 100%;
@@ -45,15 +45,22 @@ export const CardGroup = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`
+`;
 
-export const CardBtn = styled.div`
-  width: 24px;
+export const CardButton = styled.div`
+width: 24px;
   height: 24px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   padding: 2px;
+ 
+  div {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #94A6BE;
+  }
 `
 
 export const CardContent = styled.div`
@@ -62,7 +69,7 @@ export const CardContent = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-`
+`;
 
 export const CardTitle = styled.h3`
   font-size: 14px;
@@ -70,23 +77,23 @@ export const CardTitle = styled.h3`
   line-height: 18px;
   color: #000000;
   margin-bottom: 10px;
-`
+`;
 
 export const CardDate = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-`
+`;
 export const CardDateSvg = styled.svg`
   width: 13px;
-`
+`;
 export const CardDateP = styled.p`
   margin-left: 6px;
   font-size: 10px;
   line-height: 13px;
-  color: #94A6BE;
+  color: #94a6be;
   letter-spacing: 0.2px;
-`
+`;
 
 export const ThemeP = styled.p`
   font-size: 10px;

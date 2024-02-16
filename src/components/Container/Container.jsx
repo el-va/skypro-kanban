@@ -4,6 +4,7 @@ import { ContainerContainer } from "../Common/Common.styled";
 import { MainBlock, MainContent } from "./Container.styled";
 
 export default function Container({ cards }) {
+  // console.log(cards);
   return (
     <ContainerContainer>
       <MainBlock>

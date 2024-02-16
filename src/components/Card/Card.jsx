@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-// import PopBrowse from "../PopBrowse/PopBrowse";
 import {
-  CardBtn,
+  // CardBtnDiv,
+  CardButton,
   CardContent,
   CardDate,
   CardDateP,
@@ -13,9 +13,25 @@ import {
   CardsCard,
   ThemeP,
 } from "./Card.styled";
-import { AppRoutes } from "../../lib/Approutes";
+import { format } from "date-fns";
 
-export default function Card({ color, topic, title, date }) {
+export default function Card({ topic, title, date, id }) {
+
+  let color;
+  switch (topic) {
+    case "Web Design":
+      color = "_orange";
+      break;
+    case "Copywriting":
+      color = "_purple";
+      break;
+    case "Research":
+      color = "_green";
+      break;
+    default:
+      color = "_gray";
+  }
+
   return (
     <CardItem>
       <CardsCard>
@@ -23,22 +39,23 @@ export default function Card({ color, topic, title, date }) {
           <CardTheme $themeColor={color}>
             <ThemeP>{topic}</ThemeP>
           </CardTheme>
-          {/* <div className={`card__theme ${color}`}>
-            <p className={color}>{theme}</p>
+          {/* <div className={`card__theme ${color}`}> */}
+          {/* <p className={color}>{theme}</p>
           </div> */}
-          <Link to={AppRoutes.CARD}>
-          {/* <a href="#popBrowse" target="_self"> */}
-            <CardBtn>
+          <Link to={`/EditCard/${id}`} target="_self">
+            {/* <a href="#popBrowse" target="_self"> */}
+            <CardButton>
               <div></div>
               <div></div>
               <div></div>
-            </CardBtn>
-          {/* </a> */}
+            </CardButton>
+            {/* </a> */}
           </Link>
         </CardGroup>
         <CardContent>
           {/* <a href="" target="_blank"> */}
-          <Link to={AppRoutes.CARD}>
+          {/* <Link to={AppRoutes.CARD}> */}
+          <Link to={`/CardPage/${id}`}>
             <CardTitle>{title}</CardTitle>
           </Link>
           <CardDate>
@@ -70,7 +87,7 @@ export default function Card({ color, topic, title, date }) {
                 </clipPath>
               </defs>
             </CardDateSvg>
-            <CardDateP>{date}</CardDateP>
+            <CardDateP>{format(date, "dd.MM.yy")}</CardDateP>
           </CardDate>
         </CardContent>
       </CardsCard>
